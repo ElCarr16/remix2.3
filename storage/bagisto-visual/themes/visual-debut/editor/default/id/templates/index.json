@@ -20,6 +20,12 @@
             "index": 3,
             "iteration": 4
         },
+        "basic_blocks_button_0_b57118ca_6def7974": {
+            "properties": {
+                "url": "/root",
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.cta"
+            }
+        },
         "newsletter": {
             "properties": {
                 "heading": "Sign up for our newsletter",
@@ -39,11 +45,6 @@
         "basic_blocks_heading_0_54db266b_203e3e5d": {
             "properties": {
                 "text": "t:visual-debut::sections.product-list.settings.featured_label"
-            }
-        },
-        "basic_blocks_button_0_b57118ca_6def7974": {
-            "properties": {
-                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.cta"
             }
         }
     }

@@ -4,8 +4,109 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d164864467183eae2cdbcaa912bfa095",
+    "content-hash": "44a614dac99b744003883f556d8aa857",
     "packages": [
+        {
+            "name": "akara/bagisto-midtrans-payment",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nxx1/bagisto-midtrans-payment.git",
+                "reference": "a94ad0558798cfa839d7d2edbc2199c20e71cbb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nxx1/bagisto-midtrans-payment/zipball/a94ad0558798cfa839d7d2edbc2199c20e71cbb1",
+                "reference": "a94ad0558798cfa839d7d2edbc2199c20e71cbb1",
+                "shasum": ""
+            },
+            "require": {
+                "midtrans/midtrans-php": "^2.6",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "bagisto/bagisto": "2.3.x-dev"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akara\\MidtransPayment\\Providers\\MidtransServiceProvider",
+                        "Akara\\MidtransPayment\\Providers\\MidtransEventServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akara\\MidtransPayment\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "N. Pratama",
+                    "email": "npratama028@gmail.com"
+                }
+            ],
+            "description": "Midtrans Payment Integration for Bagisto",
+            "support": {
+                "issues": "https://github.com/Nxx1/bagisto-midtrans-payment/issues",
+                "source": "https://github.com/Nxx1/bagisto-midtrans-payment/tree/v1.0.5"
+            },
+            "time": "2025-11-22T11:17:42+00:00"
+        },
+        {
+            "name": "akara/bagisto-rajaongkir",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nxx1/bagisto-rajaongkir.git",
+                "reference": "d60d8b42b81075ad177d528e577e0634909a71be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nxx1/bagisto-rajaongkir/zipball/d60d8b42b81075ad177d528e577e0634909a71be",
+                "reference": "d60d8b42b81075ad177d528e577e0634909a71be",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "illuminate/support": "^10|^11",
+                "php": "^8.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Akara\\RajaOngkir\\Providers\\RajaOngkirServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Akara\\RajaOngkir\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "N.Pratama",
+                    "email": "nprataama028@gmail.com"
+                }
+            ],
+            "description": "High-reliability RajaOngkir shipping integration for Bagisto.",
+            "support": {
+                "issues": "https://github.com/Nxx1/bagisto-rajaongkir/issues",
+                "source": "https://github.com/Nxx1/bagisto-rajaongkir/tree/v1.0.0"
+            },
+            "time": "2025-11-18T17:47:24+00:00"
+        },
         {
             "name": "andreiio/blade-remix-icon",
             "version": "3.9.1",
@@ -5036,6 +5137,67 @@
                 "source": "https://github.com/mewebstudio/Purifier/tree/3.4.4"
             },
             "time": "2026-04-15T16:41:08+00:00"
+        },
+        {
+            "name": "midtrans/midtrans-php",
+            "version": "2.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Midtrans/midtrans-php.git",
+                "reference": "8ed7fc58ff1ababe675da17acf8233f4028eb3be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Midtrans/midtrans-php/zipball/8ed7fc58ff1ababe675da17acf8233f4028eb3be",
+                "reference": "8ed7fc58ff1ababe675da17acf8233f4028eb3be",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7.*",
+                "psy/psysh": "0.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SnapBi\\": "SnapBi/",
+                    "Midtrans\\": "Midtrans/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andri Setiawan",
+                    "email": "andri.setiawan@veritrans.co.id"
+                },
+                {
+                    "name": "Alvin Litani",
+                    "email": "alvin.litani@veritrans.co.id"
+                },
+                {
+                    "name": "Ismail Faruqi",
+                    "email": "ismail.faruqi@veritrans.co.id"
+                },
+                {
+                    "name": "Muhammad Fauzi Masykur",
+                    "email": "muhammad.masykur@gojek.com"
+                }
+            ],
+            "description": "PHP Wrapper for Midtrans Payment API.",
+            "homepage": "https://midtrans.com",
+            "support": {
+                "issues": "https://github.com/Midtrans/midtrans-php/issues",
+                "source": "https://github.com/Midtrans/midtrans-php/tree/v2.6.2"
+            },
+            "time": "2025-03-18T06:30:17+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",

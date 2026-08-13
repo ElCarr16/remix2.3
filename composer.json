@@ -17,6 +17,8 @@
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
         "ext-tokenizer": "*",
+        "akara/bagisto-midtrans-payment": "^1.0",
+        "akara/bagisto-rajaongkir": "^1.0",
         "astrotomic/laravel-translatable": "^11.0.0",
         "bagisto/image-cache": "dev-master",
         "bagistoplus/visual": "v2.0.0-alpha.25",
