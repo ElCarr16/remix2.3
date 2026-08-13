@@ -17,8 +17,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 0,
-            "iteration": 1
+            "index": 1,
+            "iteration": 2
         },
         "main-header": {
             "id": "main-header",
@@ -38,8 +38,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 1,
-            "iteration": 2
+            "index": 0,
+            "iteration": 1
         },
         "container-logo_9d7fa7a3": {
             "id": "container-logo_9d7fa7a3",
@@ -304,8 +304,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 2,
-            "iteration": 3
+            "index": 0,
+            "iteration": 1
         },
         "compare_07227deb": {
             "id": "compare_07227deb",
@@ -342,8 +342,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 4,
-            "iteration": 5
+            "index": 1,
+            "iteration": 2
         },
         "cart_60c8a578": {
             "id": "cart_60c8a578",
@@ -361,8 +361,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 5,
-            "iteration": 6
+            "index": 2,
+            "iteration": 3
         }
     },
     "regions": [

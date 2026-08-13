@@ -1,0 +1,50 @@
+{
+    "parent": "default/en/templates/index.json",
+    "blocks": {
+        "category-1_8474297d": {
+            "index": 0,
+            "iteration": 1
+        },
+        "category-2_65e8fb9b": {
+            "index": 1,
+            "iteration": 2
+        },
+        "basic_blocks_heading_0_54db266b_7692d783": {
+            "index": 2,
+            "iteration": 3,
+            "properties": {
+                "text": "t:visual-debut::sections.category-list.presets.grid.heading"
+            }
+        },
+        "static-category-card_c8152370": {
+            "index": 3,
+            "iteration": 4
+        },
+        "newsletter": {
+            "properties": {
+                "heading": "Sign up for our newsletter",
+                "description": "Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store."
+            }
+        },
+        "basic_blocks_heading_0_54db266b_e5e6250a": {
+            "properties": {
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.heading"
+            }
+        },
+        "basic_blocks_text_0_b4baa19b_d2b64d79": {
+            "properties": {
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.description"
+            }
+        },
+        "basic_blocks_heading_0_54db266b_203e3e5d": {
+            "properties": {
+                "text": "t:visual-debut::sections.product-list.settings.featured_label"
+            }
+        },
+        "basic_blocks_button_0_b57118ca_6def7974": {
+            "properties": {
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.cta"
+            }
+        }
+    }
+}

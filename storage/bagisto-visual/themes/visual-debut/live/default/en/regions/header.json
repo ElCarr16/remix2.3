@@ -205,10 +205,7 @@
             },
             "parentId": "main-header",
             "children": [
-                "currency-selector_f5098607",
-                "locale-selector_4b6ecffd",
                 "search_ed447185",
-                "compare_07227deb",
                 "user_5cdf71c1",
                 "cart_60c8a578"
             ],
@@ -373,8 +370,8 @@
             "id": "header",
             "name": "Header",
             "blocks": [
-                "announcement-bar",
-                "main-header"
+                "main-header",
+                "announcement-bar"
             ],
             "shared": true
         }

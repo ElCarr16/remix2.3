@@ -1,0 +1,95 @@
+{
+    "parent": "default/en/regions/footer.json",
+    "blocks": {
+        "basic_blocks_text_0_c74d5796_f2fccf13": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.copyright"
+            }
+        },
+        "basic_blocks_heading_0_54db266b_612dfaa2": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.brand_title"
+            }
+        },
+        "basic_blocks_richtext_0_f1e4ff73_6ab6bafa": {
+            "properties": {
+                "content": "t:visual-debut::sections.footer.presets.classic.brand_description"
+            }
+        },
+        "basic_blocks_heading_0_54db266b_cbbae0dd": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.company_title"
+            }
+        },
+        "basic_blocks_link_0_e328dc67_25c8e6e9": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.about_us"
+            }
+        },
+        "basic_blocks_link_1_acb3fac4_d0fffc6d": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.contact"
+            }
+        },
+        "basic_blocks_link_2_eaa23644_edec828c": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.careers"
+            }
+        },
+        "basic_blocks_heading_0_54db266b_399f31df": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.policy_title"
+            }
+        },
+        "basic_blocks_link_0_e328dc67_1b8cd988": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.privacy_policy"
+            }
+        },
+        "basic_blocks_link_1_acb3fac4_1cd38b48": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.terms_of_service"
+            }
+        },
+        "basic_blocks_link_2_eaa23644_d827c7c7": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.shipping_policy"
+            }
+        },
+        "basic_blocks_heading_0_54db266b_009da3f3": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.account_title"
+            }
+        },
+        "basic_blocks_link_0_e328dc67_50b9426c": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.sign_in"
+            }
+        },
+        "basic_blocks_link_1_acb3fac4_4b779560": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.register"
+            }
+        },
+        "basic_blocks_link_2_eaa23644_966bc32a": {
+            "properties": {
+                "text": "t:visual-debut::sections.footer.presets.classic.links.my_account"
+            }
+        },
+        "basic_blocks_button_0_b57118ca_8b814738": {
+            "properties": {
+                "text": ""
+            }
+        },
+        "basic_blocks_button_1_0fbc501c_322267cd": {
+            "properties": {
+                "text": ""
+            }
+        },
+        "basic_blocks_button_2_157a6514_c023986e": {
+            "properties": {
+                "text": ""
+            }
+        }
+    }
+}
