@@ -17,8 +17,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 0,
-            "iteration": 1
+            "index": 1,
+            "iteration": 2
         },
         "main-header": {
             "id": "main-header",
@@ -29,7 +29,7 @@
             },
             "parentId": null,
             "children": [
-                "container-logo_9d7fa7a3",
+                "ababa224-c394-4fcf-91fe-da8d51733a0e",
                 "container-nav_186ca83a",
                 "container-actions_8ad895b5"
             ],
@@ -38,8 +38,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 1,
-            "iteration": 2
+            "index": 0,
+            "iteration": 1
         },
         "container-logo_9d7fa7a3": {
             "id": "container-logo_9d7fa7a3",
@@ -48,11 +48,17 @@
             "properties": {
                 "layout_type": "flex",
                 "flex_direction": "row",
-                "flex_justify": null,
-                "flex_align": null,
+                "flex_justify": {
+                    "_default": "center",
+                    "desktop": "start"
+                },
+                "flex_align": {
+                    "_default": "center",
+                    "desktop": "start"
+                },
                 "flex_reverse_items": false,
                 "flex_gap": {
-                    "_default": 4
+                    "_default": 2
                 },
                 "color_scheme": null,
                 "grid_columns": 3,
@@ -60,10 +66,12 @@
                 "grid_gap": 4,
                 "padding": null,
                 "margin": null,
-                "width": "auto",
+                "width": {
+                    "_default": "full"
+                },
                 "custom_width": 100,
                 "min_width": 0,
-                "max_width": "none",
+                "max_width": "full",
                 "height": "auto",
                 "custom_height": 400,
                 "min_height": 0,
@@ -87,7 +95,7 @@
                 "link": null,
                 "open_in_new_tab": false
             },
-            "parentId": "main-header",
+            "parentId": "ababa224-c394-4fcf-91fe-da8d51733a0e",
             "children": [
                 "visual_debut_logo_0_8343267e_90ba2223"
             ],
@@ -106,8 +114,12 @@
             "properties": {
                 "layout_type": "flex",
                 "flex_direction": "row",
-                "flex_justify": "start",
-                "flex_align": null,
+                "flex_justify": {
+                    "_default": "end"
+                },
+                "flex_align": {
+                    "_default": "stretch"
+                },
                 "flex_reverse_items": false,
                 "flex_gap": {
                     "_default": 4
@@ -304,8 +316,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 2,
-            "iteration": 3
+            "index": 0,
+            "iteration": 1
         },
         "compare_07227deb": {
             "id": "compare_07227deb",
@@ -342,8 +354,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 4,
-            "iteration": 5
+            "index": 1,
+            "iteration": 2
         },
         "cart_60c8a578": {
             "id": "cart_60c8a578",
@@ -361,8 +373,102 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 5,
-            "iteration": 6
+            "index": 2,
+            "iteration": 3
+        },
+        "ababa224-c394-4fcf-91fe-da8d51733a0e": {
+            "type": "@visual-debut/header-group",
+            "id": "ababa224-c394-4fcf-91fe-da8d51733a0e",
+            "name": "Group",
+            "properties": {
+                "layout_type": "flex",
+                "flex_direction": "row",
+                "flex_reverse_items": false,
+                "flex_gap": 4,
+                "grid_columns": {
+                    "_default": 2
+                },
+                "grid_rows": {
+                    "_default": 1
+                },
+                "grid_gap": {
+                    "_default": 0
+                },
+                "width": {
+                    "_default": "full"
+                },
+                "custom_width": 100,
+                "min_width": 0,
+                "max_width": "none",
+                "height": {
+                    "_default": "fit",
+                    "desktop": "auto"
+                },
+                "custom_height": 400,
+                "min_height": 0,
+                "border": false,
+                "border_width": 1,
+                "border_style": "solid",
+                "border_color": "currentColor",
+                "border_radius": "none",
+                "background_type": "none",
+                "background_color": "rgba(0, 0, 0, 0)",
+                "background_size": "cover",
+                "background_repeat": "no-repeat",
+                "is_overlay": false,
+                "overlay_position": "full",
+                "overlay_visibility": "always",
+                "overlay_hover_target": "parent",
+                "z_index": 10,
+                "position": "static",
+                "link": null,
+                "open_in_new_tab": false,
+                "flex_justify": {
+                    "_default": "center",
+                    "desktop": "start"
+                },
+                "flex_align": {
+                    "_default": null,
+                    "desktop": "start"
+                },
+                "color_scheme": null,
+                "padding": {
+                    "_default": null,
+                    "desktop": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                    }
+                },
+                "margin": {
+                    "_default": {
+                        "top": 0,
+                        "right": 24,
+                        "bottom": 0,
+                        "left": 0
+                    },
+                    "desktop": {
+                        "top": 0,
+                        "right": 0,
+                        "bottom": 0,
+                        "left": 0
+                    }
+                },
+                "background_gradient": null,
+                "background_image": null
+            },
+            "children": [
+                "container-logo_9d7fa7a3"
+            ],
+            "parentId": "main-header",
+            "disabled": false,
+            "static": false,
+            "repeated": false,
+            "ghost": false,
+            "semanticId": null,
+            "index": 0,
+            "iteration": 1
         }
     },
     "regions": [

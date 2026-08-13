@@ -48,8 +48,12 @@
             "properties": {
                 "layout_type": "flex",
                 "flex_direction": "row",
-                "flex_justify": null,
-                "flex_align": null,
+                "flex_justify": {
+                    "_default": "center"
+                },
+                "flex_align": {
+                    "_default": "end"
+                },
                 "flex_reverse_items": false,
                 "flex_gap": {
                     "_default": 4

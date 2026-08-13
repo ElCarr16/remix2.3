@@ -1,6 +1,6 @@
 {
     "logo_desktop": {
-        "path": "bagisto-visual/images/416861436f6e766572745f6c6f676f203530783530202831292d50686f746f726f6f6d_6a7d85979f73b.ico",
+        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a7d85854b042.svg",
         "alt": "",
         "focalPoint": {
             "x": 50,
@@ -23,7 +23,7 @@
             "y": 50
         }
     },
-    "default_scheme": "default",
+    "default_scheme": "lofi",
     "color_schemes": {
         "cupcake": {
             "background": "#faf7f5",
