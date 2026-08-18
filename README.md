@@ -1,7 +1,7 @@
 # Remix Official Store
 
 <p align="center">
-  <strong>Laravel 12 + Bagisto 2.4.x e-commerce platform</strong>
+  <strong>Laravel 11 + Bagisto 2.3.x e-commerce platform</strong>
 </p>
 
 ---
@@ -66,12 +66,16 @@ For a more complete local setup, Redis and Elasticsearch are also recommended.
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/ElCarr16/remix-clothing-store-website.git
-cd remix-clothing-store-website
+cd remix2.3
 ```
 
 ### 2. Install PHP dependencies
 ```bash
 composer install
+```
+### 2. Publishing all vendor
+```bash
+php artisan vendor:publish
 ```
 
 ### 3. Configure environment
@@ -81,7 +85,7 @@ cp .env.example .env
 
 Update the environment values for your local database and app URL:
 ```env
-APP_NAME="Bagisto"
+APP_NAME="remix"
 APP_ENV=local
 APP_KEY=
 APP_DEBUG=true
@@ -90,7 +94,7 @@ APP_URL=http://localhost
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=bagisto
+DB_DATABASE="db_name"
 DB_USERNAME=root
 DB_PASSWORD=
 ```
