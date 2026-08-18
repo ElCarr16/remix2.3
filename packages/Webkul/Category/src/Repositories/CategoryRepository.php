@@ -290,7 +290,7 @@ class CategoryRepository extends Repository
 
                     $manager = new ImageManager;
 
-                    $image = $manager->make(request()->file($file))->encode('webp');
+                    $image = $manager->make(request()->file($file))->orientate()->encode('webp');
 
                     $category->{$type} = 'category/'.$category->id.'/'.Str::random(40).'.webp';
 

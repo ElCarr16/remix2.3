@@ -103,7 +103,7 @@ class ThemeCustomizationRepository extends Repository
 
                     $path = 'theme/'.$theme->id.'/'.Str::random(40).'.webp';
 
-                    Storage::put($path, $manager->make($image['image'])->encode('webp'));
+                    Storage::put($path, $manager->make($image['image'])->orientate()->encode('webp'));
                 } catch (\Exception $e) {
                     session()->flash('error', $e->getMessage());
 
