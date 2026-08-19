@@ -61,7 +61,7 @@
                         </h2>
 
                         <!-- Swatch Options -->
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3" style="flex-wrap: wrap;">
                             <template v-for="(option, index) in attribute.options">
                                 <template v-if="option.id">
                                     <!-- Color Swatch Options -->
@@ -70,6 +70,7 @@
                                         :class="{'ring-2 ring-gray-900' : option.id == attribute.selectedValue}"
                                         :title="option.label"
                                         v-if="attribute.swatch_type == 'color'"
+                                        style="flex-shrink: 0; aspect-ratio: 1 / 1; min-width: 32px; min-height: 32px;"
                                     >
                                         <v-field
                                             type="radio"
@@ -93,9 +94,9 @@
                                         </v-field>
 
                                         <span
-                                            class="h-8 w-8 rounded-full border border-gray-200 max-sm:h-[25px] max-sm:w-[25px]"
+                                            class="block h-8 w-8 rounded-full border border-gray-200 max-sm:h-[25px] max-sm:w-[25px]"
                                             tabindex="0"
-                                            :style="{ 'background-color': option.swatch_value }"
+                                            :style="{ 'background-color': option.swatch_value, 'flex-shrink': '0', 'width': '100%', 'height': '100%', 'border-radius': '50%' }"
                                         ></span>
                                     </label>
 
