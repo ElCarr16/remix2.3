@@ -574,7 +574,7 @@
             "type": "@basic-blocks/richtext",
             "name": null,
             "properties": {
-                "content": "<p>inspiring you to choose outfit of the day</p>",
+                "content": "t:visual-debut::sections.footer.presets.classic.brand_description",
                 "width": "fit",
                 "max_width": "normal",
                 "alignment": "left",

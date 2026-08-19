@@ -547,7 +547,7 @@
             "type": "@basic-blocks/heading",
             "name": null,
             "properties": {
-                "text": "REMI",
+                "text": "t:visual-debut::sections.footer.presets.classic.brand_title",
                 "heading_level": "h3",
                 "width": "fit",
                 "max_width": "none",
@@ -574,7 +574,7 @@
             "type": "@basic-blocks/richtext",
             "name": null,
             "properties": {
-                "content": "<p>inspiring you to choose outfit of the day</p>",
+                "content": "t:visual-debut::sections.footer.presets.classic.brand_description",
                 "width": "fit",
                 "max_width": "normal",
                 "alignment": "left",

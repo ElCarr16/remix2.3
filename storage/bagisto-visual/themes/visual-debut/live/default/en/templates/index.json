@@ -113,7 +113,7 @@
                 "parent_category": 107,
                 "product_type": "new",
                 "nb_products": 24,
-                "layout_type": "grid",
+                "layout_type": "carousel",
                 "columns": {
                     "_default": 4,
                     "mobile": 2,
