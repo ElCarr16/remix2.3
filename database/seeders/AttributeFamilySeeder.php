@@ -11,13 +11,12 @@ class AttributeFamilySeeder extends Seeder
 {
     public function run()
     {
-        // 1. Ambil atribut wajib bawaan Bagisto
-        $defaultAttributes = Attribute::whereIn('code', [
-            'sku', 'name', 'url_key', 'tax_category_id', 'new', 'featured', 'visible_individually', 'status'
-        ])->get();
+        // 1. Ambil atribut wajib bawaan Bagisto dari family 'default' (kecuali 'size')
+        $defaultFamily = AttributeFamily::where('code', 'default')->first();
+        $defaultAttributes = $defaultFamily ? $defaultFamily->custom_attributes()->where('attributes.code', '!=', 'size')->get() : collect();
 
-        // 2. Lakukan perulangan untuk SIZE 1 sampai SIZE 16
-        for ($i = 1; $i <= 16; $i++) {
+        // 2. Lakukan perulangan untuk SIZE 1 sampai SIZE 17
+        for ($i = 1; $i <= 17; $i++) {
 
             $sizeAttribute = Attribute::where('code', "size_{$i}")->first();
 

@@ -1000,8 +1000,8 @@
             "iteration": 2
         }
     },
-    "regions": {
-        "1": {
+    "regions": [
+        {
             "id": "main",
             "name": "main",
             "blocks": [
@@ -1012,5 +1012,5 @@
             ],
             "shared": false
         }
-    }
+    ]
 }
