@@ -47,14 +47,17 @@
             "name": "Logo",
             "properties": {
                 "layout_type": "flex",
-                "flex_direction": "row",
+                "flex_direction": {
+                    "_default": "row",
+                    "mobile": "row"
+                },
                 "flex_justify": {
                     "_default": "center",
                     "desktop": "start"
                 },
                 "flex_align": {
                     "_default": "center",
-                    "desktop": "start"
+                    "desktop": "center"
                 },
                 "flex_reverse_items": false,
                 "flex_gap": {
@@ -67,14 +70,21 @@
                 "padding": null,
                 "margin": null,
                 "width": {
-                    "_default": "full"
+                    "_default": "full",
+                    "mobile": "auto"
                 },
                 "custom_width": 100,
-                "min_width": 0,
+                "min_width": 50,
                 "max_width": "full",
-                "height": "auto",
-                "custom_height": 400,
-                "min_height": 0,
+                "height": {
+                    "_default": "auto",
+                    "mobile": "auto"
+                },
+                "custom_height": {
+                    "_default": 400,
+                    "mobile": 0
+                },
+                "min_height": 50,
                 "border": false,
                 "border_width": 1,
                 "border_style": "solid",
@@ -481,6 +491,14 @@
             "semanticId": null,
             "index": 0,
             "iteration": 1
+        },
+        "5eb84d47-d597-481b-b026-3fce265674b6": {
+            "type": "@visual-debut/logo",
+            "id": "5eb84d47-d597-481b-b026-3fce265674b6",
+            "name": "Logo",
+            "properties": [],
+            "children": [],
+            "parentId": "container-logo_9d7fa7a3"
         }
     },
     "regions": [

@@ -25,7 +25,14 @@
                 "background_type": "image",
                 "background_color": "#000000ff",
                 "background_gradient": null,
-                "background_image": "/themes/shop/visual-debut/images/hero-banner.avif",
+                "background_image": {
+                    "path": "bagisto-visual/images/47656d696e695f47656e6572617465645f496d6167655f20283129_6a852180bcdad.png",
+                    "alt": "",
+                    "focalPoint": {
+                        "x": 50,
+                        "y": 50
+                    }
+                },
                 "background_size": "cover",
                 "background_repeat": "no-repeat",
                 "border": false,
@@ -106,7 +113,7 @@
                 "parent_category": 107,
                 "product_type": "new",
                 "nb_products": 24,
-                "layout_type": "grid",
+                "layout_type": "carousel",
                 "columns": {
                     "_default": 4,
                     "mobile": 2,
@@ -457,7 +464,8 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": "none",
-                "padding": null
+                "padding": null,
+                "custom_height": 100
             },
             "parentId": "static-category-card_c8152370",
             "children": [],
@@ -693,7 +701,8 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": "none",
-                "padding": null
+                "padding": null,
+                "custom_height": 100
             },
             "parentId": "visual_debut_product_card_group_0_a966567f_6c69ce3e",
             "children": [],
