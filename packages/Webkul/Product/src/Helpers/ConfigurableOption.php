@@ -71,10 +71,31 @@ class ConfigurableOption
             'index' => $options['index'] ?? [],
             'variant_prices' => $this->getVariantPrices($product),
             'variant_images' => $this->getVariantImages($product),
+            'variant_swatches' => $this->getVariantSwatchImages($product),
             'variant_videos' => $this->getVariantVideos($product),
         ];
 
         return array_merge($config, $product->getTypeInstance()->getProductPrices());
+    }
+
+    /**
+     * Get specific swatch images for configurable variations.
+     *
+     * @param  Product  $product
+     * @return array
+     */
+    protected function getVariantSwatchImages($product)
+    {
+        $swatches = [];
+
+        foreach ($this->getAllowedVariants($product) as $variant) {
+            $imagePath = $variant->color_swatch_image;
+            if ($imagePath) {
+                $swatches[$variant->id] = \Illuminate\Support\Facades\Storage::url($imagePath);
+            }
+        }
+
+        return $swatches;
     }
 
     /**

@@ -94,16 +94,18 @@
                                         </v-field>
 
                                         <span
-                                            class="block h-8 w-8 rounded-full border border-gray-200 max-sm:h-[25px] max-sm:w-[25px]"
+                                            class="block h-8 w-8 rounded-full border border-gray-200 max-sm:h-[25px] max-sm:w-[25px] relative overflow-hidden"
                                             tabindex="0"
                                             :style="{ 'background-color': option.swatch_value, 'flex-shrink': '0', 'width': '100%', 'height': '100%', 'border-radius': '50%' }"
-                                        ></span>
+                                        >
+                                            <img v-if="getSwatchImage(option)" :src="getSwatchImage(option)" class="absolute inset-0 w-full h-full object-cover" />
+                                        </span>
                                     </label>
 
                                     <!-- Image Swatch Options -->
                                     <label 
-                                        class="group relative flex h-[60px] w-[60px] cursor-pointer items-center justify-center overflow-hidden rounded-md border bg-white font-medium uppercase text-gray-900 hover:bg-gray-50 sm:py-6"
-                                        :class="{'border-navyBlue' : option.id == attribute.selectedValue }"
+                                        class="group relative flex h-8 w-8 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white font-medium uppercase text-gray-900 hover:bg-gray-50 max-sm:h-[25px] max-sm:w-[25px]"
+                                        :class="{'border-navyBlue border-2' : option.id == attribute.selectedValue }"
                                         :title="option.label"
                                         v-if="attribute.swatch_type == 'image'"
                                     >
@@ -132,6 +134,7 @@
                                         <img
                                             :src="option.swatch_value"
                                             :title="option.label"
+                                            class="absolute inset-0 w-full h-full object-cover"
                                         />
                                     </label>
 
@@ -247,6 +250,23 @@
                 },
 
                 methods: {
+                    getSwatchImage(option) {
+                        try {
+                            let variantId = null;
+                            if (option.allowedProducts && option.allowedProducts.length > 0) {
+                                variantId = option.allowedProducts[0];
+                            } else if (option.products && option.products.length > 0) {
+                                variantId = option.products[0];
+                            }
+                            
+                            if (variantId && this.config.variant_swatches && this.config.variant_swatches[variantId]) {
+                                return this.config.variant_swatches[variantId];
+                            }
+                        } catch (e) {}
+                        
+                        return '';
+                    },
+
                     configure(attribute, optionId) {
                         this.possibleOptionVariant = this.getPossibleOptionVariant(attribute, optionId);
 
