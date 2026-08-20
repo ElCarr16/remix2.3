@@ -1069,7 +1069,7 @@
             "name": "Image",
             "properties": {
                 "image": {
-                    "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a7e844fec135.svg",
+                    "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
                     "alt": "",
                     "focalPoint": {
                         "x": 50,
@@ -1085,10 +1085,11 @@
                 "object_fit": "contain",
                 "width": {
                     "_default": "custom",
-                    "desktop": "fit-content"
+                    "desktop": "custom"
                 },
                 "custom_width": {
-                    "_default": 50
+                    "_default": 50,
+                    "desktop": 30
                 },
                 "height": "custom",
                 "hover_zoom": false,
