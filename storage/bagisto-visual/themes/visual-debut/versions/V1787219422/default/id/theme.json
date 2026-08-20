@@ -1,28 +1,7 @@
 {
-    "logo_desktop": {
-        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
-        "alt": "",
-        "focalPoint": {
-            "x": 50,
-            "y": 50
-        }
-    },
-    "logo_mobile": {
-        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
-        "alt": "",
-        "focalPoint": {
-            "x": 50,
-            "y": 50
-        }
-    },
-    "favicon": {
-        "path": "bagisto-visual/images/6c6f676f2066617669636f_6a86af846005c.png",
-        "alt": "",
-        "focalPoint": {
-            "x": 50,
-            "y": 50
-        }
-    },
+    "logo_desktop": null,
+    "logo_mobile": null,
+    "favicon": null,
     "default_scheme": "scheme-9",
     "color_schemes": {
         "cupcake": {

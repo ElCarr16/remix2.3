@@ -1,29 +1,8 @@
 {
-    "logo_desktop": {
-        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
-        "alt": "",
-        "focalPoint": {
-            "x": 50,
-            "y": 50
-        }
-    },
-    "logo_mobile": {
-        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
-        "alt": "",
-        "focalPoint": {
-            "x": 50,
-            "y": 50
-        }
-    },
-    "favicon": {
-        "path": "bagisto-visual/images/6c6f676f2066617669636f_6a86af846005c.png",
-        "alt": "",
-        "focalPoint": {
-            "x": 50,
-            "y": 50
-        }
-    },
-    "default_scheme": "scheme-9",
+    "logo_desktop": null,
+    "logo_mobile": null,
+    "favicon": null,
+    "default_scheme": "light",
     "color_schemes": {
         "cupcake": {
             "background": "#faf7f5",
@@ -216,30 +195,6 @@
             "on-warning": "#78350F",
             "danger": "#F87272",
             "on-danger": "#7F1D1D"
-        },
-        "scheme-9": {
-            "background": "#F7F7F7FF",
-            "on-background": "#000000FF",
-            "neutral": "#262629",
-            "on-neutral": "#C2C2C2FF",
-            "surface": "#FF0000FF",
-            "on-surface": "#000000FF",
-            "primary": "#FFFFFFFF",
-            "on-primary": "#FF0000FF",
-            "secondary": "#f9cbe5",
-            "on-secondary": "#a0004a",
-            "accent": "#ffd6a7",
-            "on-accent": "#9f2d00",
-            "surface-alt": "#FF0000FF",
-            "on-surface-alt": "#FFFFFFFF",
-            "info": "#00a4f2",
-            "on-info": "#042e49",
-            "success": "#00ba7b",
-            "on-success": "#002c21",
-            "warning": "#edaf00",
-            "on-warning": "#411e03",
-            "danger": "#fe1c55",
-            "on-danger": "#4d0218"
         }
     },
     "typography_presets": {
