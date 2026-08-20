@@ -20,6 +20,7 @@
         "akara/bagisto-midtrans-payment": "^1.0",
         "akara/bagisto-rajaongkir": "^1.0",
         "astrotomic/laravel-translatable": "^11.0.0",
+        "bagisto/bagisto-rma": "^2.2",
         "bagisto/image-cache": "dev-master",
         "bagistoplus/visual": "v2.0.0-alpha.25",
         "bagistoplus/visual-debut": "2.0.0-alpha.10",

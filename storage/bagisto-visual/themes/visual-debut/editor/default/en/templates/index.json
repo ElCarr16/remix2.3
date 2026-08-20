@@ -26,7 +26,7 @@
                 "background_color": "#000000ff",
                 "background_gradient": null,
                 "background_image": {
-                    "path": "bagisto-visual/images/47656d696e695f47656e6572617465645f496d6167655f20283129_6a852180bcdad.png",
+                    "path": "bagisto-visual/images/47656d696e695f47656e6572617465645f496d6167655f_6a86ba798244f.png",
                     "alt": "",
                     "focalPoint": {
                         "x": 50,
@@ -1009,8 +1009,8 @@
             "iteration": 2
         }
     },
-    "regions": {
-        "1": {
+    "regions": [
+        {
             "id": "main",
             "name": "main",
             "blocks": [
@@ -1021,5 +1021,5 @@
             ],
             "shared": false
         }
-    }
+    ]
 }
