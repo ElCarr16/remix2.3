@@ -22,7 +22,6 @@
         "astrotomic/laravel-translatable": "^11.0.0",
         "bagisto/bagisto-rma": "^2.2",
         "bagisto/image-cache": "dev-master",
-        "bagistoplus/visual-debut": "2.0.0-alpha.10",
         "barryvdh/laravel-dompdf": "*",
         "diglactic/laravel-breadcrumbs": "^9.0",
         "elasticsearch/elasticsearch": "^8.10",
