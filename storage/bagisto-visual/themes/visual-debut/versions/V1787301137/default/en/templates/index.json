@@ -173,7 +173,7 @@
             "type": "@basic-blocks/heading",
             "name": null,
             "properties": {
-                "text": "REMIX",
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.heading",
                 "heading_level": "h1",
                 "width": {
                     "_default": "fit",
@@ -203,7 +203,7 @@
             "type": "@basic-blocks/text",
             "name": null,
             "properties": {
-                "text": "inspiring you to choose outfit for the day",
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.description",
                 "width": "fit",
                 "max_width": "normal",
                 "alignment": "left",
