@@ -50,6 +50,13 @@ $kernel = $app->make(Kernel::class);
 
 $response = $kernel->handle(
     $request = Request::capture(),
-)->send();
+);
+
+if ($request->has('debug_blocks')) {
+    $hasBlock = app(\Craftile\Laravel\BlockSchemaRegistry::class)->get('@visual-debut/product-card-group') !== null;
+    dd('Has visual-debut/product-card-group block? ' . ($hasBlock ? 'YES' : 'NO') . ' | Response Status: ' . $response->getStatusCode());
+}
+
+$response->send();
 
 $kernel->terminate($request, $response);
