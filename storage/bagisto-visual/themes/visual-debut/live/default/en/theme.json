@@ -1,6 +1,6 @@
 {
     "logo_desktop": {
-        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
+        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a87f5f08d1f4.svg",
         "alt": "",
         "focalPoint": {
             "x": 50,
@@ -8,7 +8,7 @@
         }
     },
     "logo_mobile": {
-        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
+        "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a87f5f08d1f4.svg",
         "alt": "",
         "focalPoint": {
             "x": 50,
@@ -16,7 +16,7 @@
         }
     },
     "favicon": {
-        "path": "bagisto-visual/images/6c6f676f2066617669636f_6a86af846005c.png",
+        "path": "bagisto-visual/images/416861436f6e766572745f6c6f676f203530783530202831292d50686f746f726f6f6d_6a87f6034ac2b.ico",
         "alt": "",
         "focalPoint": {
             "x": 50,

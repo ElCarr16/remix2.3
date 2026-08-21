@@ -418,8 +418,8 @@
             "repeated": true,
             "ghost": false,
             "semanticId": "static-product-card",
-            "index": 0,
-            "iteration": 1
+            "index": 1,
+            "iteration": 2
         },
         "basic_blocks_button_0_b57118ca_6def7974": {
             "id": "basic_blocks_button_0_b57118ca_6def7974",

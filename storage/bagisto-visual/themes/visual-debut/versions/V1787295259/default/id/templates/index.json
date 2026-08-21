@@ -10,12 +10,10 @@
                     "_default": "column"
                 },
                 "flex_justify": {
-                    "_default": "center",
-                    "desktop": "center"
+                    "_default": "center"
                 },
                 "flex_align": {
-                    "_default": "center",
-                    "desktop": "start"
+                    "_default": "center"
                 },
                 "flex_gap": {
                     "_default": 4
@@ -28,7 +26,7 @@
                 "background_color": "#000000ff",
                 "background_gradient": null,
                 "background_image": {
-                    "path": "bagisto-visual/images/47656d696e695f47656e6572617465645f496d6167655f20283129_6a87f7e8eeed8.png",
+                    "path": "bagisto-visual/images/47656d696e695f47656e6572617465645f496d6167655f20283129_6a852180bcdad.png",
                     "alt": "",
                     "focalPoint": {
                         "x": 50,
@@ -1002,33 +1000,6 @@
             },
             "children": [],
             "parentId": "category-list",
-            "disabled": false,
-            "static": false,
-            "repeated": false,
-            "ghost": false,
-            "semanticId": null,
-            "index": 1,
-            "iteration": 2
-        },
-        "fe160306-516a-4c61-a460-69218cd54aea": {
-            "type": "@basic-blocks/heading",
-            "id": "fe160306-516a-4c61-a460-69218cd54aea",
-            "name": "Heading",
-            "properties": {
-                "text": "t:basic-blocks::blocks.heading.default_text",
-                "heading_level": "h2",
-                "width": "fit",
-                "max_width": "none",
-                "alignment": "left",
-                "color": "default",
-                "text_color": "#000000FF",
-                "typography": null,
-                "color_scheme": null,
-                "padding": null,
-                "margin": null
-            },
-            "children": [],
-            "parentId": "featured-products",
             "disabled": false,
             "static": false,
             "repeated": false,
