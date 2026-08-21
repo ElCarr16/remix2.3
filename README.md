@@ -65,7 +65,7 @@ For a more complete local setup, Redis and Elasticsearch are also recommended.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/ElCarr16/remix-clothing-store-website.git
+git clone https://github.com/ElCarr16/remix2.3
 cd remix2.3
 ```
 
