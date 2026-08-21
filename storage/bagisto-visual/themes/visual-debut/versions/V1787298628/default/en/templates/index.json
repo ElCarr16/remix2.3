@@ -296,8 +296,8 @@
             "repeated": false,
             "ghost": true,
             "semanticId": null,
-            "index": 0,
-            "iteration": 1
+            "index": 1,
+            "iteration": 2
         },
         "category-2_65e8fb9b": {
             "id": "category-2_65e8fb9b",
@@ -313,8 +313,8 @@
             "repeated": false,
             "ghost": true,
             "semanticId": null,
-            "index": 1,
-            "iteration": 2
+            "index": 0,
+            "iteration": 1
         },
         "basic_blocks_heading_0_54db266b_7692d783": {
             "id": "basic_blocks_heading_0_54db266b_7692d783",
@@ -345,8 +345,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 2,
-            "iteration": 3
+            "index": 0,
+            "iteration": 1
         },
         "static-category-card_c8152370": {
             "id": "static-category-card_c8152370",
@@ -365,8 +365,8 @@
             "repeated": true,
             "ghost": false,
             "semanticId": "static-category-card",
-            "index": 3,
-            "iteration": 4
+            "index": 1,
+            "iteration": 2
         },
         "basic_blocks_heading_0_54db266b_203e3e5d": {
             "id": "basic_blocks_heading_0_54db266b_203e3e5d",
@@ -427,7 +427,7 @@
             "name": null,
             "properties": {
                 "text": "t:visual-debut::sections.flex-section.presets.hero_banner.cta",
-                "url": "/root",
+                "url": "visual://categories:ALL%20COLLECTION/all-collection-raxc",
                 "open_in_new_tab": false,
                 "color": "primary",
                 "style": "filled",
@@ -1036,22 +1036,6 @@
             "semanticId": null,
             "index": 1,
             "iteration": 2
-        },
-        "70da8be2-0ecd-4770-808d-b81509a49462": {
-            "type": "@basic-blocks/heading",
-            "id": "70da8be2-0ecd-4770-808d-b81509a49462",
-            "name": "Heading",
-            "properties": {
-                "text": "t:basic-blocks::blocks.heading.default_text",
-                "heading_level": "h2",
-                "width": "fit",
-                "max_width": "none",
-                "alignment": "left",
-                "color": "default",
-                "text_color": "#000000FF"
-            },
-            "children": [],
-            "parentId": "hero-banner"
         }
     },
     "regions": {

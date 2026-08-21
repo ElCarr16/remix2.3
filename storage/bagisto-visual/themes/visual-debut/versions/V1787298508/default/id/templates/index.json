@@ -1036,22 +1036,6 @@
             "semanticId": null,
             "index": 1,
             "iteration": 2
-        },
-        "70da8be2-0ecd-4770-808d-b81509a49462": {
-            "type": "@basic-blocks/heading",
-            "id": "70da8be2-0ecd-4770-808d-b81509a49462",
-            "name": "Heading",
-            "properties": {
-                "text": "t:basic-blocks::blocks.heading.default_text",
-                "heading_level": "h2",
-                "width": "fit",
-                "max_width": "none",
-                "alignment": "left",
-                "color": "default",
-                "text_color": "#000000FF"
-            },
-            "children": [],
-            "parentId": "hero-banner"
         }
     },
     "regions": {

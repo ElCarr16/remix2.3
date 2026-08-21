@@ -547,7 +547,7 @@
             "type": "@basic-blocks/heading",
             "name": null,
             "properties": {
-                "text": "REMI",
+                "text": "t:visual-debut::sections.footer.presets.classic.brand_title",
                 "heading_level": "h3",
                 "width": "fit",
                 "max_width": "none",
@@ -574,7 +574,7 @@
             "type": "@basic-blocks/richtext",
             "name": null,
             "properties": {
-                "content": "<p>inspiring you to choose outfit of the day</p>",
+                "content": "t:visual-debut::sections.footer.presets.classic.brand_description",
                 "width": "fit",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1069,7 +1069,7 @@
             "name": "Image",
             "properties": {
                 "image": {
-                    "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a87f5f08d1f4.svg",
+                    "path": "bagisto-visual/images/4c4f474f2052454d495820574542204e4f524d414c_6a86af6ad63ab.svg",
                     "alt": "",
                     "focalPoint": {
                         "x": 50,
