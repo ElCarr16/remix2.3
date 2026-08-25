@@ -30,6 +30,10 @@ class OrderFlowServiceProvider extends ServiceProvider
 
         Event::listen('sales.shipment.create.before', GuardShipmentCreation::class);
 
+        Event::listen('bagisto.admin.sales.order.page_action.after', function ($viewRenderEventManager) {
+            $viewRenderEventManager->addTemplate('order-flow::admin.fulfillment-tab');
+        });
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 \Remix\OrderFlow\Console\Commands\AutoCompleteOrders::class,
