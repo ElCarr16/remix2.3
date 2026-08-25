@@ -17,15 +17,15 @@ enum FulfillmentStatus: string
     public function label(): string
     {
         return match ($this) {
-            self::WAITING_PAYMENT => 'Menunggu Pembayaran',
-            self::WAITING_APPROVAL => 'Menunggu Persetujuan Admin',
-            self::REJECTED => 'Pesanan Dibatalkan Admin',
-            self::PENDING_PROCESS => 'Menunggu Diproses',
-            self::PROCESSING => 'Sedang Diproses Admin',
-            self::WAITING_COURIER_PICKUP => 'Menunggu Pickup Kurir',
-            self::SHIPPED => 'Pesanan Telah Dikirim',
-            self::WAITING_COMPLETION_CONFIRMATION => 'Menunggu Konfirmasi Selesai',
-            self::COMPLETED => 'Pesanan Selesai',
+            self::WAITING_PAYMENT => 'Waiting for Payment',
+            self::WAITING_APPROVAL => 'Waiting for Admin Approval',
+            self::REJECTED => 'Order Rejected by Admin',
+            self::PENDING_PROCESS => 'Waiting to be Processed',
+            self::PROCESSING => 'Being Processed by Admin',
+            self::WAITING_COURIER_PICKUP => 'Waiting for Courier Pickup',
+            self::SHIPPED => 'Order Shipped',
+            self::WAITING_COMPLETION_CONFIRMATION => 'Waiting for Completion Confirmation',
+            self::COMPLETED => 'Order Completed',
         };
     }
 
