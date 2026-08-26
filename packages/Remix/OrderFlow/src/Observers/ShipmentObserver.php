@@ -13,16 +13,21 @@ class ShipmentObserver
     public function created(Shipment $shipment): void
     {
         $order = $shipment->order;
-
-        if ($order->fulfillment_status !== FulfillmentStatus::WAITING_COURIER_PICKUP->value) {
+        if ($order->fulfillment_status !== FulfillmentStatus::PROCESSING->value) {
             return;
         }
 
-        $this->fulfillment->markShipped(
+        $fulfillment = app(OrderFulfillmentService::class);
+        $fulfillment->transition(
             $order,
-            $shipment->carrier_title ?: ($shipment->carrier_code ?: 'Kurir'),
-            $shipment->track_number ?: '-',
-            $shipment->carrier_code
+            FulfillmentStatus::WAITING_COURIER_PICKUP,
+            'system',
+            null,
+            "Shipment created: {$shipment->carrier_title} ({$shipment->track_number})"
         );
+
+        $order->courier_name = $shipment->carrier_title;
+        $order->courier_tracking_number = $shipment->track_number;
+        $order->save();
     }
 }

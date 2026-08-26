@@ -34,6 +34,10 @@ class OrderFlowServiceProvider extends ServiceProvider
             $viewRenderEventManager->addTemplate('order-flow::admin.fulfillment-tab');
         });
 
+        Event::listen('bagisto.shop.customers.account.orders.view.before', function ($viewRenderEventManager) {
+            $viewRenderEventManager->addTemplate('order-flow::shop.fulfillment-status');
+        });
+
         if ($this->app->runningInConsole()) {
             $this->commands([
                 \Remix\OrderFlow\Console\Commands\AutoCompleteOrders::class,

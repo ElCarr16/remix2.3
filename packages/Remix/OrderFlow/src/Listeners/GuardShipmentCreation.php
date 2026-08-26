@@ -9,9 +9,9 @@ class GuardShipmentCreation
 {
     public function handle($order): void
     {
-        if ($order->fulfillment_status !== FulfillmentStatus::WAITING_COURIER_PICKUP->value) {
+        if ($order->fulfillment_status !== FulfillmentStatus::PROCESSING->value) {
             throw ValidationException::withMessages([
-                'fulfillment_status' => 'Pesanan harus berstatus "Menunggu Pickup Kurir" sebelum bisa dibuatkan Shipment. Klik "Siap Kirim" dulu di tab Fulfillment.',
+                'fulfillment_status' => 'Pesanan harus berstatus "Sedang Diproses Admin" sebelum bisa dibuatkan resi/shipment.',
             ]);
         }
         

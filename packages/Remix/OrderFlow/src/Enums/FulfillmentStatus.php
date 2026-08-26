@@ -37,7 +37,7 @@ enum FulfillmentStatus: string
             self::PENDING_PROCESS => [self::PROCESSING],
             self::PROCESSING => [self::WAITING_COURIER_PICKUP],
             self::WAITING_COURIER_PICKUP => [self::SHIPPED],
-            self::SHIPPED => [self::WAITING_COMPLETION_CONFIRMATION],
+            self::SHIPPED => [self::WAITING_COMPLETION_CONFIRMATION, self::COMPLETED],
             self::WAITING_COMPLETION_CONFIRMATION => [self::COMPLETED],
             default => [],
         };

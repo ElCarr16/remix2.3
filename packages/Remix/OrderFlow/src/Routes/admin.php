@@ -16,8 +16,8 @@ Route::group([
     Route::post('orders/{id}/fulfillment/processing', [OrderFulfillmentController::class, 'markProcessing'])
         ->name('admin.orders.fulfillment.processing');
 
-    Route::post('orders/{id}/fulfillment/waiting-pickup', [OrderFulfillmentController::class, 'markWaitingPickup'])
-        ->name('admin.orders.fulfillment.waiting-pickup');
+    Route::post('orders/{id}/fulfillment/shipped', [OrderFulfillmentController::class, 'markShipped'])
+        ->name('admin.orders.fulfillment.shipped');
 
     Route::post('orders/{id}/fulfillment/confirm-completion', [OrderFulfillmentController::class, 'confirmCompletion'])
         ->name('admin.orders.fulfillment.confirm-completion');

@@ -24,7 +24,7 @@ class OrderFulfillmentController extends Controller
         $order = $this->orderRepository->findOrFail($orderId);
         $this->fulfillment->transition($order, FulfillmentStatus::PENDING_PROCESS, 'admin', auth()->guard('admin')->id());
 
-        return redirect()->back()->with('success', 'Pesanan disetujui.');
+        return redirect()->back()->with('success', 'Order approved.');
     }
 
     public function reject(Request $request, int $orderId)
@@ -34,7 +34,7 @@ class OrderFulfillmentController extends Controller
         $order = $this->orderRepository->findOrFail($orderId);
         $this->fulfillment->reject($order, auth()->guard('admin')->id(), $request->reason);
 
-        return redirect()->back()->with('success', 'Pesanan ditolak.');
+        return redirect()->back()->with('success', 'Order rejected.');
     }
 
     public function markProcessing(int $orderId)
@@ -42,15 +42,15 @@ class OrderFulfillmentController extends Controller
         $order = $this->orderRepository->findOrFail($orderId);
         $this->fulfillment->transition($order, FulfillmentStatus::PROCESSING, 'admin', auth()->guard('admin')->id());
 
-        return redirect()->back()->with('success', 'Pesanan mulai diproses.');
+        return redirect()->back()->with('success', 'Order is now being processed.');
     }
 
-    public function markWaitingPickup(int $orderId)
+    public function markShipped(int $orderId)
     {
         $order = $this->orderRepository->findOrFail($orderId);
-        $this->fulfillment->transition($order, FulfillmentStatus::WAITING_COURIER_PICKUP, 'admin', auth()->guard('admin')->id());
+        $this->fulfillment->transition($order, FulfillmentStatus::SHIPPED, 'admin', auth()->guard('admin')->id());
 
-        return redirect()->back()->with('success', 'Menunggu pickup kurir. Silakan buat Shipment di halaman order.');
+        return redirect()->back()->with('success', 'Order marked as Shipped.');
     }
 
     public function confirmCompletion(int $orderId)
@@ -58,6 +58,6 @@ class OrderFulfillmentController extends Controller
         $order = $this->orderRepository->findOrFail($orderId);
         $this->fulfillment->transition($order, FulfillmentStatus::COMPLETED, 'admin', auth()->guard('admin')->id());
 
-        return redirect()->back()->with('success', 'Pesanan ditandai selesai.');
+        return redirect()->back()->with('success', 'Order marked as completed.');
     }
 }

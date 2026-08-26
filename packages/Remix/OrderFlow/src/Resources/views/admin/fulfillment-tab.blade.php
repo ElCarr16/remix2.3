@@ -48,16 +48,16 @@
                     </button>
                 </form>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::PROCESSING)
-                <form action="{{ route('admin.orders.fulfillment.waiting-pickup', $order->id) }}" method="POST" class="inline-block">
+                <div class="text-sm text-gray-600 dark:text-gray-300 p-3 bg-yellow-50 dark:bg-yellow-900/30 rounded border border-yellow-200 dark:border-yellow-800 w-full">
+                    Order is being processed. Please pack the items and create a <strong>Shipment</strong> (using the Ship button at the top) to input the tracking number. The status will then automatically update to <em>Waiting for Courier Pickup</em>.
+                </div>
+            @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_COURIER_PICKUP)
+                <form action="{{ route('admin.orders.fulfillment.shipped', $order->id) }}" method="POST" class="inline-block">
                     @csrf
-                    <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Mark as ready for shipping?')">
-                        Ready to Ship
+                    <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Confirm that the courier has picked up the package?')">
+                        Confirm Order Shipped
                     </button>
                 </form>
-            @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_COURIER_PICKUP)
-                <div class="text-sm text-gray-600 dark:text-gray-300 p-3 bg-yellow-50 dark:bg-yellow-900/30 rounded border border-yellow-200 dark:border-yellow-800 w-full">
-                    Waiting for courier pickup. Please create a Shipment to input the tracking number. The status will automatically update to Shipped.
-                </div>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_COMPLETION_CONFIRMATION)
                 <form action="{{ route('admin.orders.fulfillment.confirm-completion', $order->id) }}" method="POST" class="inline-block">
                     @csrf
@@ -65,6 +65,18 @@
                         Confirm Completion
                     </button>
                 </form>
+            @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::SHIPPED)
+                <div class="flex gap-4 items-center">
+                    <div class="text-sm text-blue-600 dark:text-blue-400 p-3 bg-blue-50 dark:bg-blue-900/30 rounded border border-blue-200 dark:border-blue-800">
+                        Order has been shipped. Waiting for the customer to receive the package.
+                    </div>
+                    <form action="{{ route('admin.orders.fulfillment.confirm-completion', $order->id) }}" method="POST" class="inline-block">
+                        @csrf
+                        <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Force complete this order now?')">
+                            Mark as Completed
+                        </button>
+                    </form>
+                </div>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::COMPLETED)
                 <div class="text-sm text-green-600 font-semibold">Order Completed</div>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::REJECTED)
