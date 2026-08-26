@@ -1,0 +1,21 @@
+{
+    "name": "remix/order-flow",
+    "description": "Custom Tokopedia/Shopee-style order fulfillment flow untuk Remix Official Store (Bagisto 2.4.8)",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Remix\\OrderFlow\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Remix\\OrderFlow\\Providers\\OrderFlowServiceProvider"
+            ]
+        }
+    }
+}

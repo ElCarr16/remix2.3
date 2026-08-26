@@ -173,7 +173,7 @@
             "type": "@basic-blocks/heading",
             "name": null,
             "properties": {
-                "text": "REMIX",
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.heading",
                 "heading_level": "h1",
                 "width": {
                     "_default": "fit",
@@ -203,7 +203,7 @@
             "type": "@basic-blocks/text",
             "name": null,
             "properties": {
-                "text": "inspiring you to choose outfit for the day",
+                "text": "t:visual-debut::sections.flex-section.presets.hero_banner.description",
                 "width": "fit",
                 "max_width": "normal",
                 "alignment": "left",
@@ -296,8 +296,8 @@
             "repeated": false,
             "ghost": true,
             "semanticId": null,
-            "index": 1,
-            "iteration": 2
+            "index": 0,
+            "iteration": 1
         },
         "category-2_65e8fb9b": {
             "id": "category-2_65e8fb9b",
@@ -313,8 +313,8 @@
             "repeated": false,
             "ghost": true,
             "semanticId": null,
-            "index": 0,
-            "iteration": 1
+            "index": 1,
+            "iteration": 2
         },
         "basic_blocks_heading_0_54db266b_7692d783": {
             "id": "basic_blocks_heading_0_54db266b_7692d783",
@@ -345,8 +345,8 @@
             "repeated": false,
             "ghost": false,
             "semanticId": null,
-            "index": 0,
-            "iteration": 1
+            "index": 2,
+            "iteration": 3
         },
         "static-category-card_c8152370": {
             "id": "static-category-card_c8152370",
@@ -365,8 +365,8 @@
             "repeated": true,
             "ghost": false,
             "semanticId": "static-category-card",
-            "index": 1,
-            "iteration": 2
+            "index": 3,
+            "iteration": 4
         },
         "basic_blocks_heading_0_54db266b_203e3e5d": {
             "id": "basic_blocks_heading_0_54db266b_203e3e5d",
@@ -427,7 +427,7 @@
             "name": null,
             "properties": {
                 "text": "t:visual-debut::sections.flex-section.presets.hero_banner.cta",
-                "url": "visual://categories:ALL%20COLLECTION/all-collection-raxc",
+                "url": "/root",
                 "open_in_new_tab": false,
                 "color": "primary",
                 "style": "filled",
@@ -584,7 +584,8 @@
             },
             "parentId": "static-product-card_0a31d86f",
             "children": [
-                "basic_blocks_product_image_0_65987b2f_ee5faf62"
+                "basic_blocks_product_image_0_65987b2f_ee5faf62",
+                "visual_debut_product_card_group_0_f4dc84f5_3bc9bc65"
             ],
             "disabled": false,
             "static": false,
@@ -765,7 +766,8 @@
             "parentId": "visual_debut_product_card_group_0_a966567f_6c69ce3e",
             "children": [
                 "visual_debut_product_button_0_b89ca453_147e082e",
-                "visual_debut_product_button_1_8f9cd296_5a2f2801"
+                "visual_debut_product_button_1_8f9cd296_5a2f2801",
+                "visual_debut_product_button_2_20416bbe_457ec1ee"
             ],
             "disabled": false,
             "static": false,

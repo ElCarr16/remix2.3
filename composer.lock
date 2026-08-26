@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e3c9d7648343d5fd317aa0fe5553dc6",
+    "content-hash": "085af422eecaebf743921664ffbc4564",
     "packages": [
         {
             "name": "akara/bagisto-midtrans-payment",
@@ -8592,6 +8592,38 @@
             "time": "2025-12-14T04:43:48+00:00"
         },
         {
+            "name": "remix/order-flow",
+            "version": "dev-RMA-integration",
+            "dist": {
+                "type": "path",
+                "url": "packages/Remix/OrderFlow",
+                "reference": "852c807f47016dd5210eb9d2b2b419f3c702a949"
+            },
+            "require": {
+                "php": "^8.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Remix\\OrderFlow\\Providers\\OrderFlowServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Remix\\OrderFlow\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Custom Tokopedia/Shopee-style order fulfillment flow untuk Remix Official Store (Bagisto 2.4.8)",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "sabberworm/php-css-parser",
             "version": "v8.9.0",
             "source": {
@@ -15966,7 +15998,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "bagisto/image-cache": 20
+        "bagisto/image-cache": 20,
+        "remix/order-flow": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

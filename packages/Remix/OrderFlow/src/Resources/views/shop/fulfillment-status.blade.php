@@ -1,0 +1,103 @@
+@php
+    $currentStatus = \Remix\OrderFlow\Enums\FulfillmentStatus::from($order->fulfillment_status);
+@endphp
+
+<style>
+    .fulfillment-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    @media (min-width: 640px) {
+        .fulfillment-header {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .timeline-content-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 4px;
+        gap: 4px;
+    }
+    @media (min-width: 640px) {
+        .timeline-content-header {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+    }
+</style>
+
+<div class="mt-4 mb-4 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
+    <div class="fulfillment-header">
+        <h3 class="text-lg font-semibold text-gray-800" style="margin: 0;">
+            Fulfillment Status: 
+            <span class="text-blue-600">{{ $currentStatus->label() }}</span>
+        </h3>
+        @if($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::SHIPPED)
+            <form method="POST" action="{{ route('shop.customers.account.orders.mark_completed', $order->id) }}" style="margin: 0; width: 100%;">
+                @csrf
+                <x-shop::ui.button
+                    type="submit"
+                    variant="primary"
+                    color="primary"
+                    size="sm"
+                    style="width: 100%; max-width: 250px;"
+                    onclick="return confirm('Are you sure you have received the order?');"
+                >
+                    Order Received
+                </x-shop::ui.button>
+            </form>
+        @endif
+    </div>
+
+    @if($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_COURIER_PICKUP)
+        <p class="text-sm text-gray-600 mb-4 bg-yellow-50 p-3 rounded border border-yellow-100">
+            Your order is being prepared and is waiting for the courier to pick up the package.
+        </p>
+    @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::SHIPPED)
+        <p class="text-sm text-gray-600 mb-4 bg-blue-50 p-3 rounded border border-blue-100">
+            Your order has been shipped! Tracking Number: <strong>{{ $order->courier_tracking_number ?? '-' }}</strong> ({{ $order->courier_name ?? '-' }})
+        </p>
+    @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::REJECTED)
+        <div class="mb-4 bg-red-50 p-4 rounded-lg border border-red-200">
+            <h4 class="text-red-700 font-semibold mb-1">Order Cancelled/Rejected</h4>
+            <p class="text-sm text-red-600">
+                <strong>Reason:</strong> {{ $order->admin_rejection_reason ?? 'No reason provided.' }}
+            </p>
+            <p class="text-xs text-red-500 mt-2">
+                * If you have already made a payment, it will be refunded. Please contact support.
+            </p>
+        </div>
+    @endif
+
+    <div class="mt-4 border-t pt-4">
+        <h4 class="text-sm font-semibold text-gray-800 mb-4">Order Timeline</h4>
+        <div style="margin-left: 10px; border-left: 2px solid #e5e7eb; padding-left: 20px; position: relative;">
+            @foreach(\Remix\OrderFlow\Models\OrderFulfillmentLog::where('order_id', $order->id)->orderBy('created_at', 'desc')->get() as $log)
+                <div style="position: relative; margin-bottom: 1.5rem;">
+                    <!-- Timeline Dot -->
+                    <div style="position: absolute; left: -29px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background-color: #2563eb; border: 3px solid #ffffff; box-shadow: 0 0 0 1px #e5e7eb;"></div>
+                    
+                    <!-- Timeline Content -->
+                    <div class="bg-gray-50 border border-gray-200 rounded shadow-sm" style="padding: 12px;">
+                        <div class="timeline-content-header">
+                            <div class="font-semibold text-gray-900" style="font-size: 14px;">
+                                {{ \Remix\OrderFlow\Enums\FulfillmentStatus::from($log->to_status)->label() }}
+                            </div>
+                            <div class="text-blue-600" style="font-size: 12px; font-weight: 500;">
+                                {{ $log->created_at->format('d M Y, H:i') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</div>
