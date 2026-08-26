@@ -72,7 +72,14 @@ class OrderFulfillmentService
     {
         $order = $this->transition($order, FulfillmentStatus::REJECTED, 'admin', $adminId, $reason);
 
-        app(\Webkul\Sales\Repositories\OrderRepository::class)->cancel($order);
+        // Try standard cancel first
+        $canceled = app(\Webkul\Sales\Repositories\OrderRepository::class)->cancel($order);
+        
+        // Force the native status to canceled if the standard method fails (e.g. because it was already invoiced by Midtrans)
+        if ($order->status !== 'canceled' && $order->status !== 'closed') {
+            $order->status = 'canceled';
+            $order->save();
+        }
 
         return $order;
     }

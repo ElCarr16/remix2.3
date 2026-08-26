@@ -65,6 +65,16 @@
         <p class="text-sm text-gray-600 mb-4 bg-blue-50 p-3 rounded border border-blue-100">
             Your order has been shipped! Tracking Number: <strong>{{ $order->courier_tracking_number ?? '-' }}</strong> ({{ $order->courier_name ?? '-' }})
         </p>
+    @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::REJECTED)
+        <div class="mb-4 bg-red-50 p-4 rounded-lg border border-red-200">
+            <h4 class="text-red-700 font-semibold mb-1">Order Cancelled/Rejected</h4>
+            <p class="text-sm text-red-600">
+                <strong>Reason:</strong> {{ $order->admin_rejection_reason ?? 'No reason provided.' }}
+            </p>
+            <p class="text-xs text-red-500 mt-2">
+                * If you have already made a payment, it will be refunded. Please contact support.
+            </p>
+        </div>
     @endif
 
     <div class="mt-4 border-t pt-4">
