@@ -2,20 +2,53 @@
     $currentStatus = \Remix\OrderFlow\Enums\FulfillmentStatus::from($order->fulfillment_status);
 @endphp
 
+<style>
+    .fulfillment-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+    @media (min-width: 640px) {
+        .fulfillment-header {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .timeline-content-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 4px;
+        gap: 4px;
+    }
+    @media (min-width: 640px) {
+        .timeline-content-header {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+    }
+</style>
+
 <div class="mt-4 mb-4 rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
-    <div class="flex items-center justify-between mb-4">
-        <h3 class="text-lg font-semibold text-gray-800">
+    <div class="fulfillment-header">
+        <h3 class="text-lg font-semibold text-gray-800" style="margin: 0;">
             Fulfillment Status: 
             <span class="text-blue-600">{{ $currentStatus->label() }}</span>
         </h3>
         @if($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::SHIPPED)
-            <form method="POST" action="{{ route('shop.customers.account.orders.mark_completed', $order->id) }}">
+            <form method="POST" action="{{ route('shop.customers.account.orders.mark_completed', $order->id) }}" style="margin: 0; width: 100%;">
                 @csrf
                 <x-shop::ui.button
                     type="submit"
                     variant="primary"
                     color="primary"
                     size="sm"
+                    style="width: 100%; max-width: 250px;"
                     onclick="return confirm('Are you sure you have received the order?');"
                 >
                     Order Received
@@ -44,7 +77,7 @@
                     
                     <!-- Timeline Content -->
                     <div class="bg-gray-50 border border-gray-200 rounded shadow-sm" style="padding: 12px;">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                        <div class="timeline-content-header">
                             <div class="font-semibold text-gray-900" style="font-size: 14px;">
                                 {{ \Remix\OrderFlow\Enums\FulfillmentStatus::from($log->to_status)->label() }}
                             </div>
