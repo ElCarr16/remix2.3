@@ -584,8 +584,7 @@
             },
             "parentId": "static-product-card_0a31d86f",
             "children": [
-                "basic_blocks_product_image_0_65987b2f_ee5faf62",
-                "visual_debut_product_card_group_0_f4dc84f5_3bc9bc65"
+                "basic_blocks_product_image_0_65987b2f_ee5faf62"
             ],
             "disabled": false,
             "static": false,
@@ -766,8 +765,7 @@
             "parentId": "visual_debut_product_card_group_0_a966567f_6c69ce3e",
             "children": [
                 "visual_debut_product_button_0_b89ca453_147e082e",
-                "visual_debut_product_button_1_8f9cd296_5a2f2801",
-                "visual_debut_product_button_2_20416bbe_457ec1ee"
+                "visual_debut_product_button_1_8f9cd296_5a2f2801"
             ],
             "disabled": false,
             "static": false,

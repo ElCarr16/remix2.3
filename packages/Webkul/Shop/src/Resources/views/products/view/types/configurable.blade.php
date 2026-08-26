@@ -61,13 +61,14 @@
                         </h2>
 
                         <!-- Swatch Options -->
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                             <template v-for="(option, index) in attribute.options">
                                 <template v-if="option.id">
                                     <!-- Color Swatch Options -->
                                     <label
-                                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none"
+                                        class="relative -m-0.5 flex shrink-0 cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none"
                                         :class="{'ring-2 ring-gray-900' : option.id == attribute.selectedValue}"
+                                        style="width: 36px !important; height: 36px !important; min-width: 36px !important; min-height: 36px !important; flex: 0 0 36px !important;"
                                         :title="option.label"
                                         v-if="attribute.swatch_type == 'color'"
                                     >
@@ -95,13 +96,14 @@
                                         <span
                                             class="h-8 w-8 rounded-full border border-gray-200 max-sm:h-[25px] max-sm:w-[25px]"
                                             tabindex="0"
-                                            :style="{ 'background-color': option.swatch_value }"
+                                            :style="{ 'background-color': option.swatch_value, width: '32px', height: '32px', minWidth: '32px', minHeight: '32px', flex: '0 0 32px', display: 'block' }"
                                         ></span>
                                     </label>
 
                                     <!-- Image Swatch Options -->
                                     <label 
-                                        class="group relative flex h-[60px] w-[60px] cursor-pointer items-center justify-center overflow-hidden rounded-md border bg-white font-medium uppercase text-gray-900 hover:bg-gray-50 sm:py-6"
+                                        class="group relative flex h-[60px] w-[60px] shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-md border bg-white font-medium uppercase text-gray-900 hover:bg-gray-50 sm:py-6"
+                                        style="width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; flex: 0 0 60px !important;"
                                         :class="{'border-navyBlue' : option.id == attribute.selectedValue }"
                                         :title="option.label"
                                         v-if="attribute.swatch_type == 'image'"
@@ -136,7 +138,7 @@
 
                                     <!-- Text Swatch Options -->
                                     <label 
-                                        class="group relative flex h-fit min-w-fit cursor-pointer items-center justify-center rounded-full border border-gray-300 bg-white px-5 py-3 font-medium uppercase text-gray-900 hover:bg-gray-50 max-sm:h-fit max-sm:w-fit max-sm:px-3.5 max-sm:py-2"
+                                        class="group relative flex h-fit min-w-fit shrink-0 cursor-pointer items-center justify-center rounded-full border border-gray-300 bg-white px-5 py-3 font-medium uppercase text-gray-900 hover:bg-gray-50 max-sm:h-fit max-sm:w-fit max-sm:px-3.5 max-sm:py-2"
                                         :class="{'border-transparent !bg-navyBlue text-white' : option.id == attribute.selectedValue }"
                                         :title="option.label"
                                         v-if="attribute.swatch_type == 'text'"
