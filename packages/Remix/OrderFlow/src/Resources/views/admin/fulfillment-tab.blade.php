@@ -2,6 +2,36 @@
     $currentStatus = \Remix\OrderFlow\Enums\FulfillmentStatus::from($order->fulfillment_status);
 @endphp
 
+<style>
+    .btn-success {
+        background-color: #10b981;
+        color: white;
+        padding: 6px 16px;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: background-color 0.2s;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-success:hover {
+        background-color: #059669;
+    }
+    
+    .btn-danger {
+        background-color: #ef4444;
+        color: white;
+        padding: 6px 16px;
+        font-weight: 600;
+        border-radius: 6px;
+        transition: background-color 0.2s;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-danger:hover {
+        background-color: #dc2626;
+    }
+</style>
+
 <div class="bg-white dark:bg-gray-900 rounded box-shadow">
     <div class="p-4">
         <p class="mb-4 text-base text-gray-800 dark:text-white font-semibold">
@@ -24,19 +54,19 @@
             </div>
         @endif
 
-        <div class="flex flex-wrap gap-2 mt-4">
+        <div class="flex flex-wrap gap-2 mt-4 items-center">
             @if($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_APPROVAL)
-                <form action="{{ route('admin.orders.fulfillment.approve', $order->id) }}" method="POST" class="inline-block">
+                <form action="{{ route('admin.orders.fulfillment.approve', $order->id) }}" method="POST" class="inline-block mr-2">
                     @csrf
-                    <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Approve this order?')">
+                    <button type="submit" class="btn-success" onclick="return confirm('Approve this order?')">
                         Approve Order
                     </button>
                 </form>
 
                 <form action="{{ route('admin.orders.fulfillment.reject', $order->id) }}" method="POST" class="inline-flex gap-2 items-center">
                     @csrf
-                    <input type="text" name="reason" placeholder="Rejection reason" required class="text-control px-3 py-1.5 rounded-md border dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 text-sm">
-                    <button type="submit" class="text-red-600 font-semibold px-2 py-1.5 hover:bg-red-50 dark:hover:bg-red-900 rounded-md transition-all" onclick="return confirm('Reject this order?')">
+                    <input type="text" name="reason" placeholder="Rejection reason" required class="text-control px-3 py-1.5 rounded-md border dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 text-sm" style="height: 36px;">
+                    <button type="submit" class="btn-danger" onclick="return confirm('Reject this order?')">
                         Reject Order
                     </button>
                 </form>
@@ -88,22 +118,32 @@
 
         <div class="mt-8 border-t dark:border-gray-800 pt-4">
             <h4 class="mb-4 text-sm text-gray-800 dark:text-white font-semibold">Fulfillment Timeline</h4>
-            <div class="flex flex-col space-y-3 relative before:absolute before:inset-0 before:ml-2.5 before:-translate-x-px md:before:mx-0 md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 dark:before:via-slate-700 before:to-transparent">
+            <div style="margin-left: 10px; border-left: 2px solid #e5e7eb; padding-left: 20px; position: relative;">
                 @foreach(\Remix\OrderFlow\Models\OrderFulfillmentLog::where('order_id', $order->id)->orderBy('created_at', 'desc')->get() as $log)
-                    <div class="relative flex items-center justify-between md:justify-normal group is-active">
-                        <div class="flex items-center justify-center w-5 h-5 rounded-full border border-white dark:border-gray-900 bg-slate-300 dark:bg-slate-700 group-[.is-active]:bg-blue-600 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:translate-x-0 ml-[1px]">
-                        </div>
-                        <div class="w-[calc(100%-2rem)] md:ml-4 bg-white dark:bg-gray-800 border border-slate-200 dark:border-gray-700 p-3 rounded shadow-sm">
-                            <div class="flex items-center justify-between space-x-2 mb-1">
-                                <div class="font-bold text-slate-900 dark:text-gray-100 text-sm">
+                    <div style="position: relative; margin-bottom: 1.5rem;">
+                        <!-- Timeline Dot -->
+                        <div style="position: absolute; left: -29px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background-color: #2563eb; border: 3px solid #ffffff; box-shadow: 0 0 0 1px #e5e7eb;"></div>
+                        
+                        <!-- Timeline Content -->
+                        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-sm" style="padding: 12px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                                <div class="font-semibold text-gray-900 dark:text-white" style="font-size: 14px;">
                                     {{ \Remix\OrderFlow\Enums\FulfillmentStatus::from($log->to_status)->label() }}
                                 </div>
-                                <time class="font-medium text-xs text-blue-600 dark:text-blue-400">{{ $log->created_at->format('d M Y, H:i') }}</time>
+                                <div class="text-blue-600 dark:text-blue-400" style="font-size: 12px; font-weight: 500;">
+                                    {{ $log->created_at->format('d M Y, H:i') }}
+                                </div>
                             </div>
+                            
                             @if($log->note)
-                                <div class="text-slate-500 dark:text-slate-400 text-xs">{{ $log->note }}</div>
+                                <div class="text-gray-600 dark:text-gray-400" style="font-size: 13px; margin-bottom: 4px;">
+                                    {{ $log->note }}
+                                </div>
                             @endif
-                            <div class="text-slate-400 dark:text-slate-500 text-[10px] mt-1">By: {{ ucfirst($log->changed_by_type) }}</div>
+                            
+                            <div class="text-gray-400 dark:text-gray-500" style="font-size: 11px;">
+                                By: {{ ucfirst($log->changed_by_type) }}
+                            </div>
                         </div>
                     </div>
                 @endforeach

@@ -11,14 +11,14 @@ class GuardShipmentCreation
     {
         if ($order->fulfillment_status !== FulfillmentStatus::PROCESSING->value) {
             throw ValidationException::withMessages([
-                'fulfillment_status' => 'Pesanan harus berstatus "Sedang Diproses Admin" sebelum bisa dibuatkan resi/shipment.',
+                'fulfillment_status' => 'Order must be in "Being Processed by Admin" status before a shipment can be created.',
             ]);
         }
         
         // Ensure single shipment (Decision #5)
         if ($order->shipments()->exists()) {
             throw ValidationException::withMessages([
-                'fulfillment_status' => 'Pesanan ini sudah memiliki pengiriman (shipment). Hanya 1 pengiriman yang diizinkan per pesanan.',
+                'fulfillment_status' => 'This order already has a shipment. Only 1 shipment is allowed per order.',
             ]);
         }
     }

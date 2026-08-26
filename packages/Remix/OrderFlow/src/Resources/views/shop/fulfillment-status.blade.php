@@ -11,9 +11,15 @@
         @if($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::SHIPPED)
             <form method="POST" action="{{ route('shop.customers.account.orders.mark_completed', $order->id) }}">
                 @csrf
-                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded shadow-sm text-sm" onclick="return confirm('Are you sure you have received the order?');">
+                <x-shop::ui.button
+                    type="submit"
+                    variant="primary"
+                    color="primary"
+                    size="sm"
+                    onclick="return confirm('Are you sure you have received the order?');"
+                >
                     Order Received
-                </button>
+                </x-shop::ui.button>
             </form>
         @endif
     </div>

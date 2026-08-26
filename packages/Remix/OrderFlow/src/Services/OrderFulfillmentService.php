@@ -23,7 +23,7 @@ class OrderFulfillmentService
 
         if (! in_array($to, $current->nextAllowed(), true)) {
             throw new Exception(
-                "Transisi tidak valid: {$current->label()} → {$to->label()}"
+                "Invalid transition: {$current->label()} -> {$to->label()}"
             );
         }
 
@@ -61,7 +61,7 @@ class OrderFulfillmentService
             try {
                 Mail::to($order->customer_email)->queue(new FulfillmentStatusChanged($order, $to, $note));
             } catch (\Exception $e) {
-                \Log::error('Gagal mengirim email status fulfillment: ' . $e->getMessage());
+                \Log::error('Failed to send fulfillment status email: ' . $e->getMessage());
             }
         }
 
@@ -92,7 +92,7 @@ class OrderFulfillmentService
             FulfillmentStatus::SHIPPED,
             'admin',
             null,
-            "Kurir: {$courierName}, Resi: {$trackingNumber}"
+            "Courier: {$courierName}, Tracking: {$trackingNumber}"
         );
     }
 }
