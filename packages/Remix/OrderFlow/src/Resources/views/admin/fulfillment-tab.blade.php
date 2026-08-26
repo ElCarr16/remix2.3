@@ -2,36 +2,6 @@
     $currentStatus = \Remix\OrderFlow\Enums\FulfillmentStatus::from($order->fulfillment_status);
 @endphp
 
-<style>
-    .btn-success {
-        background-color: #10b981;
-        color: white;
-        padding: 6px 16px;
-        font-weight: 600;
-        border-radius: 6px;
-        transition: background-color 0.2s;
-        border: none;
-        cursor: pointer;
-    }
-    .btn-success:hover {
-        background-color: #059669;
-    }
-    
-    .btn-danger {
-        background-color: #ef4444;
-        color: white;
-        padding: 6px 16px;
-        font-weight: 600;
-        border-radius: 6px;
-        transition: background-color 0.2s;
-        border: none;
-        cursor: pointer;
-    }
-    .btn-danger:hover {
-        background-color: #dc2626;
-    }
-</style>
-
 <div class="bg-white dark:bg-gray-900 rounded box-shadow">
     <div class="p-4">
         <p class="mb-4 text-base text-gray-800 dark:text-white font-semibold">
@@ -58,7 +28,7 @@
             @if($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_APPROVAL)
                 <form action="{{ route('admin.orders.fulfillment.approve', $order->id) }}" method="POST" class="inline-block mr-2">
                     @csrf
-                    <button type="submit" class="btn-success" onclick="return confirm('Approve this order?')">
+                    <button type="submit" style="background-color: #10b981; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#059669'" onmouseout="this.style.backgroundColor='#10b981'" onclick="return confirm('Approve this order?')">
                         Approve Order
                     </button>
                 </form>
@@ -66,14 +36,14 @@
                 <form action="{{ route('admin.orders.fulfillment.reject', $order->id) }}" method="POST" class="inline-flex gap-2 items-center">
                     @csrf
                     <input type="text" name="reason" placeholder="Rejection reason" required class="text-control px-3 py-1.5 rounded-md border dark:border-gray-800 dark:bg-gray-900 dark:text-gray-300 text-sm" style="height: 36px;">
-                    <button type="submit" class="btn-danger" onclick="return confirm('Reject this order?')">
+                    <button type="submit" style="background-color: #ef4444; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#dc2626'" onmouseout="this.style.backgroundColor='#ef4444'" onclick="return confirm('Reject this order?')">
                         Reject Order
                     </button>
                 </form>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::PENDING_PROCESS)
                 <form action="{{ route('admin.orders.fulfillment.processing', $order->id) }}" method="POST" class="inline-block">
                     @csrf
-                    <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Start processing this order?')">
+                    <button type="submit" style="background-color: #3b82f6; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#2563eb'" onmouseout="this.style.backgroundColor='#3b82f6'" onclick="return confirm('Start processing this order?')">
                         Process Order
                     </button>
                 </form>
@@ -84,14 +54,14 @@
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_COURIER_PICKUP)
                 <form action="{{ route('admin.orders.fulfillment.shipped', $order->id) }}" method="POST" class="inline-block">
                     @csrf
-                    <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Confirm that the courier has picked up the package?')">
+                    <button type="submit" style="background-color: #3b82f6; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#2563eb'" onmouseout="this.style.backgroundColor='#3b82f6'" onclick="return confirm('Confirm that the courier has picked up the package?')">
                         Confirm Order Shipped
                     </button>
                 </form>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::WAITING_COMPLETION_CONFIRMATION)
                 <form action="{{ route('admin.orders.fulfillment.confirm-completion', $order->id) }}" method="POST" class="inline-block">
                     @csrf
-                    <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Confirm order completion?')">
+                    <button type="submit" style="background-color: #10b981; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#059669'" onmouseout="this.style.backgroundColor='#10b981'" onclick="return confirm('Confirm order completion?')">
                         Confirm Completion
                     </button>
                 </form>
@@ -102,7 +72,7 @@
                     </div>
                     <form action="{{ route('admin.orders.fulfillment.confirm-completion', $order->id) }}" method="POST" class="inline-block">
                         @csrf
-                        <button type="submit" class="transparent-button hover:bg-gray-200 dark:hover:bg-gray-800 dark:text-white" onclick="return confirm('Force complete this order now?')">
+                        <button type="submit" style="background-color: #10b981; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#059669'" onmouseout="this.style.backgroundColor='#10b981'" onclick="return confirm('Force complete this order now?')">
                             Mark as Completed
                         </button>
                     </form>

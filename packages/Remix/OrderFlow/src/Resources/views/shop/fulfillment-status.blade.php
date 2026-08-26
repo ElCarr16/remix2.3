@@ -35,18 +35,22 @@
     @endif
 
     <div class="mt-4 border-t pt-4">
-        <h4 class="text-sm font-semibold text-gray-800 mb-3">Order Timeline</h4>
-        <div class="flex flex-col space-y-3 relative before:absolute before:inset-0 before:ml-2.5 before:-translate-x-px md:before:mx-0 md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-300 before:to-transparent">
+        <h4 class="text-sm font-semibold text-gray-800 mb-4">Order Timeline</h4>
+        <div style="margin-left: 10px; border-left: 2px solid #e5e7eb; padding-left: 20px; position: relative;">
             @foreach(\Remix\OrderFlow\Models\OrderFulfillmentLog::where('order_id', $order->id)->orderBy('created_at', 'desc')->get() as $log)
-                <div class="relative flex items-center justify-between md:justify-normal group is-active">
-                    <div class="flex items-center justify-center w-5 h-5 rounded-full border border-white bg-zinc-200 group-[.is-active]:bg-blue-600 text-slate-500 shadow shrink-0 md:order-1 md:translate-x-0 ml-[1px]">
-                    </div>
-                    <div class="w-[calc(100%-2rem)] md:ml-4 bg-zinc-50 border border-zinc-200 p-3 rounded-lg shadow-sm">
-                        <div class="flex items-center justify-between space-x-2 mb-1">
-                            <div class="font-semibold text-zinc-800 text-sm">
+                <div style="position: relative; margin-bottom: 1.5rem;">
+                    <!-- Timeline Dot -->
+                    <div style="position: absolute; left: -29px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background-color: #2563eb; border: 3px solid #ffffff; box-shadow: 0 0 0 1px #e5e7eb;"></div>
+                    
+                    <!-- Timeline Content -->
+                    <div class="bg-gray-50 border border-gray-200 rounded shadow-sm" style="padding: 12px;">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                            <div class="font-semibold text-gray-900" style="font-size: 14px;">
                                 {{ \Remix\OrderFlow\Enums\FulfillmentStatus::from($log->to_status)->label() }}
                             </div>
-                            <time class="font-medium text-xs text-blue-600">{{ $log->created_at->format('d M Y, H:i') }}</time>
+                            <div class="text-blue-600" style="font-size: 12px; font-weight: 500;">
+                                {{ $log->created_at->format('d M Y, H:i') }}
+                            </div>
                         </div>
                     </div>
                 </div>
