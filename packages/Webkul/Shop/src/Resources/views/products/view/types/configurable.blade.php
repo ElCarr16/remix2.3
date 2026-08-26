@@ -61,7 +61,7 @@
                         </h2>
 
                         <!-- Swatch Options -->
-                        <div class="flex items-center gap-3 overflow-x-auto pb-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                        <div class="flex items-center gap-3 overflow-x-auto p-2 -m-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                             <template v-for="(option, index) in attribute.options">
                                 <template v-if="option.id">
                                     <!-- Color Swatch Options -->

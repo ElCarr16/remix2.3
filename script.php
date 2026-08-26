@@ -1,1 +1,1 @@
-<?php require "vendor/autoload.php"; $app = require_once "bootstrap/app.php"; $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap(); $pages = DB::table("visual_pages")->get(["id", "name", "type"]); foreach($pages as $p) echo "$p->id - $p->name ($p->type)\n";
+<?php require "vendor/autoload.php"; $app = require_once "bootstrap/app.php"; $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap(); $tc = DB::table("theme_customizations")->get(); foreach($tc as $t) { echo $t->name . "\n"; }
