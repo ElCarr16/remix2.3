@@ -66,16 +66,28 @@
                     </button>
                 </form>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::SHIPPED)
-                <div class="flex gap-4 items-center">
-                    <div class="text-sm text-blue-600 dark:text-blue-400 p-3 bg-blue-50 dark:bg-blue-900/30 rounded border border-blue-200 dark:border-blue-800">
+                <div class="flex flex-wrap gap-4 items-center w-full">
+                    <div class="text-sm text-blue-600 dark:text-blue-400 p-3 bg-blue-50 dark:bg-blue-900/30 rounded border border-blue-200 dark:border-blue-800 flex-grow">
                         Order has been shipped. Waiting for the customer to receive the package.
                     </div>
-                    <form action="{{ route('admin.orders.fulfillment.confirm-completion', $order->id) }}" method="POST" class="inline-block">
-                        @csrf
-                        <button type="submit" style="background-color: #10b981; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#059669'" onmouseout="this.style.backgroundColor='#10b981'" onclick="return confirm('Force complete this order now?')">
-                            Mark as Completed
-                        </button>
-                    </form>
+                    
+                    <div class="flex gap-2">
+                        @if(!empty($order->courier_tracking_number))
+                            <a href="https://cekresi.com/?noresi={{ $order->courier_tracking_number }}" target="_blank" style="background-color: #3b82f6; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#2563eb'" onmouseout="this.style.backgroundColor='#3b82f6'">
+                                Cek Resi 
+                                <svg xmlns="http://www.w3.org/2000/svg" style="height: 16px; width: 16px; margin-left: 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        @endif
+
+                        <form action="{{ route('admin.orders.fulfillment.confirm-completion', $order->id) }}" method="POST" class="inline-block">
+                            @csrf
+                            <button type="submit" style="background-color: #10b981; color: white; padding: 6px 16px; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; display: inline-flex; align-items: center; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#059669'" onmouseout="this.style.backgroundColor='#10b981'" onclick="return confirm('Force complete this order now?')">
+                                Mark as Completed
+                            </button>
+                        </form>
+                    </div>
                 </div>
             @elseif($currentStatus === \Remix\OrderFlow\Enums\FulfillmentStatus::COMPLETED)
                 <div class="text-sm text-green-600 font-semibold">Order Completed</div>
