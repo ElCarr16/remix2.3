@@ -1,4 +1,4 @@
-@extends('shop::layouts.account')
+@extends('remix::layouts.refund-account')
 
 @section('page_title', 'Ajukan Refund')
 
