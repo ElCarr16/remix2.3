@@ -30,6 +30,15 @@ class OrderFlowServiceProvider extends ServiceProvider
 
         Event::listen('sales.shipment.create.before', GuardShipmentCreation::class);
 
+        Event::listen('sales.order.update-status.after', function ($order) {
+            // Cegah Bagisto auto-complete order ketika invoice & shipment dibuat
+            // Kita ingin status completed HANYA terjadi kalau admin/customer menekan tombol selesai
+            if ($order->status === 'completed' && $order->fulfillment_status !== \Remix\OrderFlow\Enums\FulfillmentStatus::COMPLETED->value) {
+                $order->status = 'processing';
+                $order->saveQuietly();
+            }
+        });
+
         Event::listen('bagisto.admin.sales.order.left_component.before', function ($viewRenderEventManager) {
             $viewRenderEventManager->addTemplate('order-flow::admin.fulfillment-tab');
         });
