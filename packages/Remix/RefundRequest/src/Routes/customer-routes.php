@@ -8,8 +8,8 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'customer'], 'prefix' =
         ->name('remix.refund-requests.index');
 
     // Halaman pembungkus wizard Livewire (langkah 1 & 2)
-    Route::get('refund-requests/create/{order}', function (int $order) {
-        return view('remix::customer.wizard-page', ['orderId' => $order]);
+    Route::get('refund-requests/create/{order}', function (\Webkul\Sales\Models\Order $order) {
+        return view('remix::customer.wizard-page', ['orderId' => $order->id]);
     })->name('remix.refund-requests.create');
 
     // Halaman status (langkah 3)
