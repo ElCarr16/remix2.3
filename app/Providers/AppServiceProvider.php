@@ -38,5 +38,9 @@ class AppServiceProvider extends ServiceProvider
         ParallelTesting::setUpTestDatabase(function (string $database, int $token) {
             Artisan::call('db:seed');
         });
+
+        // Ensure our local overrides have higher priority than visual-debut package
+        $this->app['view']->prependNamespace('shop', resource_path('views/vendor/shop'));
+        $this->app['view']->prependNamespace('visual-debut', resource_path('views/vendor/visual-debut'));
     }
 }
