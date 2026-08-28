@@ -14,24 +14,26 @@ class AutoConfirmDeliveredOrders extends Command
 
     public function handle(OrderRepository $orderRepository): int
     {
-        $deliveries = OrderDelivery::whereNull('confirmed_at')
-            ->whereNotNull('confirm_deadline_at')
-            ->where('confirm_deadline_at', '<=', now())
+        // 5 hari yang lalu
+        $deadlineThreshold = now()->subDays(\Remix\RefundRequest\Services\RefundEligibilityService::CONFIRM_WINDOW_DAYS);
+
+        // Ambil order yang sudah dikirim tapi belum dikonfirmasi selesai, dan sudah lewat masa tenggang refund
+        $orders = \Webkul\Sales\Models\Order::whereNotNull('shipped_at')
+            ->whereNull('completed_confirmed_at')
+            ->where('shipped_at', '<=', $deadlineThreshold)
             ->get();
 
-        foreach ($deliveries as $delivery) {
-            $delivery->update([
-                'confirmed_at' => now(),
-                'confirmed_by' => 'system',
+        foreach ($orders as $order) {
+            $order->update([
+                'completed_confirmed_at' => now(),
+                'status' => 'completed',
+                'fulfillment_status' => 'completed',
             ]);
 
-            $order = $orderRepository->find($delivery->order_id);
-            $order?->update(['status' => 'completed']); // sesuaikan dgn konvensi status Bagisto kamu
-
-            $this->info("Order #{$delivery->order_id} auto-confirmed (deadline lewat).");
+            $this->info("Order #{$order->id} auto-confirmed (deadline refund lewat).");
         }
 
-        $this->info("Selesai. Total order auto-confirmed: {$deliveries->count()}");
+        $this->info("Selesai. Total order auto-confirmed: {$orders->count()}");
 
         return self::SUCCESS;
     }

@@ -36,14 +36,7 @@
         <div class="flex gap-1.5">
             {!! view_render_event('bagisto.admin.sales.order.page_action.before', ['order' => $order]) !!}
 
-            @if(empty($order->remixDelivery?->delivered_at) && $order->status !== 'canceled')
-                <form method="POST" action="{{ route('remix.admin.orders.mark-delivered', $order->id) }}" style="display:inline;">
-                    @csrf
-                    <button type="submit" class="inline-flex gap-x-2 items-center justify-between w-full max-w-max px-2 py-1.5 text-gray-600 dark:text-gray-300 font-semibold text-center cursor-pointer transition-all hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md" onclick="return confirm('Tandai pesanan ini sebagai terkirim?');">
-                        Tandai Terkirim
-                    </button>
-                </form>
-            @endif
+
 
             @if (
                 $order->canCancel()

@@ -11,20 +11,19 @@ class RefundEligibilityService
 
     public function canRequestRefund(Order $order): bool
     {
-        $delivery = $order->remixDelivery;
-
-        // Belum ditandai terkirim oleh admin -> belum bisa refund lewat alur ini
-        if (! $delivery || ! $delivery->delivered_at) {
+        // Belum ditandai terkirim oleh admin -> belum bisa refund
+        if (! $order->shipped_at) {
             return false;
         }
 
-        // Sudah dikonfirmasi (manual oleh customer ATAU auto oleh system) -> window lewat
-        if ($delivery->confirmed_at) {
+        // Sudah dikonfirmasi selesai oleh customer -> window refund tertutup
+        if ($order->completed_confirmed_at) {
             return false;
         }
 
-        // Safety net kalau scheduler auto-confirm telat jalan
-        if ($delivery->confirm_deadline_at && now()->greaterThan($delivery->confirm_deadline_at)) {
+        // Hitung deadline otomatis (5 hari setelah dikirim)
+        $confirmDeadline = \Carbon\Carbon::parse($order->shipped_at)->addDays(self::CONFIRM_WINDOW_DAYS);
+        if (now()->greaterThan($confirmDeadline)) {
             return false;
         }
 
