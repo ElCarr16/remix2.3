@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "085af422eecaebf743921664ffbc4564",
+    "content-hash": "87baa25d1f2782e37a69c97f927c83db",
     "packages": [
         {
             "name": "akara/bagisto-midtrans-payment",
@@ -8593,7 +8593,7 @@
         },
         {
             "name": "remix/order-flow",
-            "version": "dev-RMA-integration",
+            "version": "dev-Refund-Request-dev",
             "dist": {
                 "type": "path",
                 "url": "packages/Remix/OrderFlow",
@@ -8620,6 +8620,33 @@
             ],
             "description": "Custom Tokopedia/Shopee-style order fulfillment flow untuk Remix Official Store (Bagisto 2.4.8)",
             "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "remix/refund-request",
+            "version": "dev-Refund-Request-dev",
+            "dist": {
+                "type": "path",
+                "url": "packages/Remix/RefundRequest",
+                "reference": "de58cc79898666bc49c7ed8532064a262bf01356"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Remix\\RefundRequest\\Providers\\RefundRequestServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Remix\\RefundRequest\\": "src/"
+                }
+            },
+            "description": "Refund Request Package for Remix",
+            "transport-options": {
+                "symlink": true,
                 "relative": true
             }
         },
@@ -15999,7 +16026,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "bagisto/image-cache": 20,
-        "remix/order-flow": 20
+        "remix/order-flow": 20,
+        "remix/refund-request": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

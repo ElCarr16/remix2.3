@@ -1,0 +1,17 @@
+{
+    "name": "remix/refund-request",
+    "description": "Refund Request Package for Remix",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Remix\\RefundRequest\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Remix\\RefundRequest\\Providers\\RefundRequestServiceProvider"
+            ]
+        }
+    }
+}

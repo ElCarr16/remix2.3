@@ -7,7 +7,7 @@
     <div class="grid grid-cols-[auto_1fr] items-center gap-4 rounded-xl border border-zinc-200 px-5 py-[25px] max-md:py-2.5">
         <div class="">
             <img
-                src="{{ $customer->image_url ??  bagisto_asset('images/user-placeholder.png') }}"
+                src="{{ $customer->image_url ?? 'https://ui-avatars.com/api/?name=' . urlencode($customer->first_name) }}"
                 class="h-[60px] w-[60px] rounded-full"
                 alt="Profile Image"
             >
