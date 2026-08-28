@@ -13,7 +13,7 @@
       @if ($errors->any())
         @foreach ($errors->all() as $error)
           @php
-              $displayError = $error === 'validation.required' ? 'Mohon lengkapi semua kolom yang wajib diisi.' : $error;
+              $displayError = $error === 'validation.required' ? 'Please complete all required fields.' : $error;
           @endphp
           window.dispatchEvent(new CustomEvent('toasts:create', {
             detail: {
@@ -27,7 +27,7 @@
   </script>
 @endpushOnce
 
-<div x-data x-toasts="{placement: 'top-end'}">
+<div x-data x-toasts="{placement: 'top-center'}">
   <template x-teleport="body">
     <template x-for="placement in placements" x-bind:key="placement">
       <div x-toasts:group="placement"
@@ -36,37 +36,40 @@
         <template x-for="toast in $group.toasts()" x-bind:key="toast.id">
           <div
             x-toasts:toast="toast"
-            class="bg-background box relative min-w-64 max-w-96 border-0 border-l-4 px-4 py-3 shadow-md"
+            class="bg-background relative w-[400px] max-w-[90vw] overflow-hidden rounded-xl border p-4 shadow-xl ring-1 ring-black/5"
             x-bind:class="{
                 'data-[state=open]:animate-slide-in-down data-[state=closed]:animate-slide-out-up': $toast.placement.includes('top'),
                 'data-[state=open]:animate-slide-in-up data-[state=closed]:animate-slide-out-down': $toast.placement.includes('bottom'),
-                'bg-info-100 border-info text-info-900': $toast.type === 'info',
-                'bg-success-100 border-success text-success-900': $toast.type === 'success',
-                'bg-warning-100 border-warning text-warning-900': $toast.type === 'warning',
-                'bg-danger-100 border-danger text-danger-900': $toast.type === 'error'
+                'border-info': $toast.type === 'info',
+                'border-success': $toast.type === 'success',
+                'border-warning': $toast.type === 'warning',
+                'border-danger': $toast.type === 'error'
             }"
           >
-            <div class="flex items-start justify-between">
-              <div>
-                <h3 class="text-sm font-semibold" x-text="$toast.title"></h3>
-                <template x-if="$toast.description">
-                  <p class="mt-1 text-sm" x-text="$toast.description"></p>
+            <div class="flex items-start gap-4 pr-6">
+              <div class="flex-shrink-0 pt-0.5">
+                <template x-if="$toast.type === 'error'">
+                  <svg class="h-5 w-5 text-danger" style="color: #ef4444;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </template>
+                <template x-if="$toast.type === 'success'">
+                  <svg class="h-5 w-5 text-success" style="color: #10b981;" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </template>
               </div>
-              <button
-                x-toasts:toast-close-trigger
-                class="absolute right-2 top-2 cursor-pointer rounded-full p-1"
-                x-bind:class="{
-                    'bg-info-100 hover:bg-info-200': $toast.type === 'info',
-                    'bg-success-100 hover:bg-success-200': $toast.type === 'success',
-                    'bg-warning-100 hover:bg-warning-200': $toast.type === 'warning',
-                    'bg-danger-100 hover:bg-danger-200': $toast.type === 'error',
-                }"
-              >
-                <span class="sr-only">@lang('visual-debut::shop.close')</span>
-                <x-lucide-x class="h-4 w-4" />
-              </button>
+              <div class="flex-1">
+                <h3 class="text-sm font-medium text-zinc-900" x-text="$toast.title"></h3>
+                <template x-if="$toast.description">
+                  <p class="mt-1 text-sm text-zinc-500" x-text="$toast.description"></p>
+                </template>
+              </div>
             </div>
+            
+            <button
+              x-toasts:toast-close-trigger
+              class="absolute right-2 top-2 rounded-lg p-1.5 text-zinc-400 transition-colors hover:bg-zinc-100 hover:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+            >
+              <span class="sr-only">@lang('visual-debut::shop.close')</span>
+              <x-lucide-x class="h-4 w-4" />
+            </button>
           </div>
         </template>
       </div>
