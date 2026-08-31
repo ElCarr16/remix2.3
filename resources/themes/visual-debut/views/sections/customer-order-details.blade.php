@@ -70,6 +70,8 @@
     </div>
   </div>
 
+  @include('order-flow::shop.fulfillment-status')
+
   <!-- Tabs -->
   @php
     $tabs = [
