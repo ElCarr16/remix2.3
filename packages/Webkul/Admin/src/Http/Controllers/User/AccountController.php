@@ -37,7 +37,7 @@ class AccountController extends Controller
             'email' => 'email|unique:admins,email,'.$user->id,
             'password' => 'nullable|min:6|confirmed',
             'current_password' => 'required|min:6',
-            'image.*' => 'nullable|mimes:bmp,jpeg,jpg,png,webp',
+            'image.*' => 'nullable|mimes:bmp,jpeg,jpg,jfif,png,webp',
         ]);
 
         $data = request()->only([
@@ -90,3 +90,4 @@ class AccountController extends Controller
         return back();
     }
 }
+

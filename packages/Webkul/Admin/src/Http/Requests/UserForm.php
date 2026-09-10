@@ -31,7 +31,8 @@ class UserForm extends FormRequest
             'status' => 'sometimes',
             'role_id' => 'required',
             'image' => 'array',
-            'image.*' => 'mimes:jpeg,jpg,png,gif|max:10000',
+            'image.*' => 'mimes:jpeg,jpg,jfif,png,gif|max:10000',
         ];
     }
 }
+

@@ -37,7 +37,7 @@ class RefundRequestWizard extends Component
             'reasonId'        => 'nullable|exists:remix_refund_reasons,id',
             'otherReasonText' => 'required_if:reasonId,null|nullable|string|max:255',
             'description'     => 'required|string|max:1000',
-            'media.*'         => 'nullable|file|mimes:jpg,jpeg,png,mp4,mov|max:20480', // 20MB/file
+            'media.*'         => 'nullable|file|mimes:jpg,jpeg,jfif,png,mp4,mov|max:20480', // 20MB/file
         ];
     }
 
@@ -111,3 +111,4 @@ class RefundRequestWizard extends Component
         return view('remix::customer.refund-wizard');
     }
 }
+

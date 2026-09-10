@@ -275,7 +275,7 @@
                         return;
                     }
 
-                    return file.name.match(/\.(jpg|jpeg|png|gif)$/i);
+                    return file.name.match(/\.(jpg|jpeg|jfif|png|gif)$/i);
                 },
 
                 onDragOver(event) {

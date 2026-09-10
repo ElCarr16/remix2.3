@@ -45,7 +45,7 @@ class ThemeController extends Controller
     {
         if (request()->has('id')) {
             $this->validate(request(), [
-                core()->getRequestedLocaleCode().'.options.*.image' => 'image|extensions:jpeg,jpg,png,svg,webp',
+                core()->getRequestedLocaleCode().'.options.*.image' => 'image|extensions:jpeg,jpg,jfif,png,svg,webp',
             ]);
 
             $theme = $this->themeCustomizationRepository->find(request()->input('id'));
@@ -171,3 +171,4 @@ class ThemeController extends Controller
         ]);
     }
 }
+

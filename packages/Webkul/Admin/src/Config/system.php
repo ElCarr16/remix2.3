@@ -238,13 +238,13 @@ return [
                 'title' => 'admin::app.configuration.index.general.design.admin-logo.logo-image',
                 'type' => 'image',
                 'channel_based' => false,
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp,svg',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp,svg',
             ], [
                 'name' => 'favicon',
                 'title' => 'admin::app.configuration.index.general.design.admin-logo.favicon',
                 'type' => 'image',
                 'channel_based' => false,
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp,svg,ico',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp,svg,ico',
             ],
         ],
     ], [
@@ -1018,7 +1018,7 @@ return [
                 'name' => 'url',
                 'title' => 'admin::app.configuration.index.catalog.products.small-image.placeholder',
                 'type' => 'image',
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp,svg',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp,svg',
             ],
         ],
     ], [
@@ -1041,7 +1041,7 @@ return [
                 'name' => 'url',
                 'title' => 'admin::app.configuration.index.catalog.products.medium-image.placeholder',
                 'type' => 'image',
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp,svg',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp,svg',
             ],
         ],
     ], [
@@ -1064,7 +1064,7 @@ return [
                 'name' => 'url',
                 'title' => 'admin::app.configuration.index.catalog.products.large-image.placeholder',
                 'type' => 'image',
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp,svg',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp,svg',
             ],
         ],
     ], [
@@ -1947,7 +1947,7 @@ return [
                 'info' => 'admin::app.configuration.index.sales.payment-methods.logo-information',
                 'channel_based' => true,
                 'locale_based' => false,
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp',
             ], [
                 'name' => 'instructions',
                 'title' => 'admin::app.configuration.index.sales.payment-methods.instructions',
@@ -2052,7 +2052,7 @@ return [
                 'info' => 'admin::app.configuration.index.sales.payment-methods.logo-information',
                 'channel_based' => false,
                 'locale_based' => false,
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp',
             ], [
                 'name' => 'generate_invoice',
                 'title' => 'admin::app.configuration.index.sales.payment-methods.generate-invoice',
@@ -2157,7 +2157,7 @@ return [
                 'info' => 'admin::app.configuration.index.sales.payment-methods.logo-information',
                 'channel_based' => false,
                 'locale_based' => false,
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp',
             ], [
                 'name' => 'business_account',
                 'title' => 'admin::app.configuration.index.sales.payment-methods.business-account',
@@ -2226,7 +2226,7 @@ return [
                 'info' => 'admin::app.configuration.index.sales.payment-methods.logo-information',
                 'channel_based' => false,
                 'locale_based' => false,
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp',
             ], [
                 'name' => 'client_id',
                 'title' => 'admin::app.configuration.index.sales.payment-methods.client-id',
@@ -2476,7 +2476,7 @@ return [
                 'title' => 'admin::app.configuration.index.sales.invoice-settings.pdf-print-outs.logo',
                 'info' => 'admin::app.configuration.index.sales.invoice-settings.pdf-print-outs.logo-info',
                 'type' => 'image',
-                'validation' => 'mimes:bmp,jpeg,jpg,png,webp',
+                'validation' => 'mimes:bmp,jpeg,jpg,jfif,png,webp',
                 'channel_based' => true,
             ], [
                 'name' => 'footer_text',
@@ -2839,3 +2839,4 @@ return [
         ],
     ],
 ];
+
