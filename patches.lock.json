@@ -1,0 +1,29 @@
+{
+    "_hash": "a83782da8d681bf5017cb374a6495562d394dcf7a55126a06348e01efa1b9cd5",
+    "patches": {
+        "bagistoplus/visual-debut": [
+            {
+                "package": "bagistoplus/visual-debut",
+                "description": "Fix Nav Categories Array Hydration",
+                "url": "patches/visual-debut-nav.patch",
+                "sha256": "20dd9f48ec98d38fed5fb81ee02cd0bc91000fd411609e821b15a336a6101278",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ],
+        "bagistoplus/basic-blocks": [
+            {
+                "package": "bagistoplus/basic-blocks",
+                "description": "Fix Image Array Hydration",
+                "url": "patches/visual-debut-image.patch",
+                "sha256": "89e83b35a97f5cc2036a1b2d37198c8e4de69fee0a09201341294d6385bca83d",
+                "depth": 1,
+                "extra": {
+                    "provenance": "root"
+                }
+            }
+        ]
+    }
+}

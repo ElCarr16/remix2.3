@@ -21,8 +21,6 @@
         "akara/bagisto-rajaongkir": "^1.0",
         "astrotomic/laravel-translatable": "^11.0.0",
         "bagisto/image-cache": "dev-master",
-        "bagistoplus/visual": "v2.0.0-alpha.25",
-        "bagistoplus/visual-debut": "2.0.0-alpha.10",
         "barryvdh/laravel-dompdf": "^2.0.0",
         "diglactic/laravel-breadcrumbs": "^9.0",
         "elasticsearch/elasticsearch": "^8.10",
@@ -39,6 +37,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^4.0",
         "league/flysystem-aws-s3-v3": "3.0",
+        "livewire/livewire": "^4.4",
         "maatwebsite/excel": "^3.1.46",
         "mpdf/mpdf": "^8.2",
         "nesbot/carbon": "^2.72.2",
@@ -135,17 +134,20 @@
             ]
         }
     },
-    "repositories": [{
-        "name": "remix-order-flow",
-        "type": "path",
-        "url": "packages/Remix/OrderFlow"
-    },{
-        "type": "path",
-        "url": "packages/*/*",
-        "options": {
-            "symlink": true
+    "repositories": [
+        {
+            "name": "remix-order-flow",
+            "type": "path",
+            "url": "packages/Remix/OrderFlow"
+        },
+        {
+            "type": "path",
+            "url": "packages/*/*",
+            "options": {
+                "symlink": true
+            }
         }
-    }],
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
