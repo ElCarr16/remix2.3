@@ -122,8 +122,8 @@ export async function addAddress(page) {
 }
 
 export async function addWishlist(page) {
-    await page.getByPlaceholder("Search products here").fill("simple");
-    await page.getByPlaceholder("Search products here").press("Enter");
+    await page.getByPlaceholder("Search article here").fill("simple");
+    await page.getByPlaceholder("Search article here").press("Enter");
     await page.locator(".action-items > span").first().click();
 
     await expect(

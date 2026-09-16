@@ -41,7 +41,7 @@ class StorefrontCategorySeeder extends Seeder
                 'JACKET/OUTER'
             ],
             'LADIES' => [
-                'BLOUSE/KEMEJA',
+                'BLOUSE',
                 'KEMEJA',
                 'GAMIS',
                 'JAKET/OUTER',

@@ -204,12 +204,12 @@ export async function downloadableOrder(page) {
      * customer to buy a product
      */
     await page.goto("");
-    await page.getByRole("textbox", { name: "Search products here" }).click();
+    await page.getByRole("textbox", { name: "Search article here" }).click();
     await page
-        .getByRole("textbox", { name: "Search products here" })
+        .getByRole("textbox", { name: "Search article here" })
         .fill(product.name);
     await page
-        .getByRole("textbox", { name: "Search products here" })
+        .getByRole("textbox", { name: "Search article here" })
         .press("Enter");
     await page.waitForTimeout(2000);
     await page.getByRole("button", { name: "Add To Cart" }).click();

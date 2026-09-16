@@ -1,6 +1,6 @@
 {!! view_render_event('bagisto.shop.components.layouts.header.desktop.bottom.before') !!}
 
-<div class="flex min-h-[78px] w-full justify-between border border-b border-l-0 border-r-0 border-t-0 px-[60px] max-1180:px-8">
+<div class="relative flex min-h-[78px] w-full justify-between border border-b border-l-0 border-r-0 border-t-0 px-[60px] max-1180:px-8">
     <!--
         This section will provide categories for the first, second, and third levels. If
         additional levels are required, users can customize them according to their needs.
@@ -282,7 +282,7 @@
             v-else-if="'{{ core()->getConfigData('general.design.categories.category_view') }}' !== 'sidebar'"
         >
             <div
-                class="group relative flex h-[77px] items-center border-b-4 border-transparent hover:border-b-4 hover:border-navyBlue"
+                class="group !static flex h-[77px] items-center border-b-4 border-transparent hover:border-b-4 hover:border-navyBlue"
                 v-for="category in categories"
             >
                 <span>
@@ -295,35 +295,37 @@
                 </span>
 
                 <div
-                    class="pointer-events-none absolute top-[78px] z-[1] max-h-[580px] w-max max-w-[1260px] translate-y-1 overflow-auto overflow-x-auto border border-b-0 border-l-0 border-r-0 border-t border-[#F3F3F3] bg-white p-9 opacity-0 shadow-[0_6px_6px_1px_rgba(0,0,0,.3)] transition duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-hover:duration-200 group-hover:ease-in ltr:-left-9 rtl:-right-9"
+                    class="pointer-events-none absolute top-[78px] z-[10] max-h-[600px] left-0 w-full translate-y-1 overflow-auto border border-b-0 border-l-0 border-r-0 border-t border-[#F3F3F3] bg-white py-10 opacity-0 shadow-lg rounded-b-xl transition duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-hover:duration-200 group-hover:ease-in"
                     v-if="category.children && category.children.length"
                 >
-                    <div class="flex justify-between gap-x-[70px]">
-                        <div
-                            class="grid w-full min-w-max max-w-[150px] flex-auto grid-cols-[1fr] content-start gap-5"
-                            v-for="pairCategoryChildren in pairCategoryChildren(category)"
-                        >
-                            <template v-for="secondLevelCategory in pairCategoryChildren">
-                                <p class="font-medium text-navyBlue">
-                                    <a :href="secondLevelCategory.url">
-                                        @{{ secondLevelCategory.name }}
+                    <div class="flex gap-12 h-full w-full mx-auto" style="padding-left: 60px; padding-right: 60px;">
+                        <!-- Left Panel: Categories Grid -->
+                        <div class="flex-1 flex flex-col justify-between">
+                            <ul class="grid grid-cols-4 gap-y-4 gap-x-8">
+                                <li v-for="subCategory in category.children" :key="subCategory.id">
+                                    <a :href="subCategory.url" class="text-[15px] font-medium text-gray-700 hover:text-black transition-colors block py-1">
+                                        @{{ subCategory.name }}
+                                        <span v-if="subCategory.name.toLowerCase() === 'promotions' || subCategory.name.toLowerCase() === 'sale'" class="ml-2 inline-block bg-[#cc6c45] text-white text-[10px] px-1.5 py-0.5 rounded">Sale</span>
                                     </a>
-                                </p>
+                                </li>
+                            </ul>
+                            <div class="mt-8 pt-6 border-t border-gray-100">
+                                <a :href="category.url" class="text-[15px] font-semibold text-black hover:underline underline-offset-4">Shop all products &rarr;</a>
+                            </div>
+                        </div>
 
-                                <ul
-                                    class="grid grid-cols-[1fr] gap-3"
-                                    v-if="secondLevelCategory.children && secondLevelCategory.children.length"
-                                >
-                                    <li
-                                        class="text-sm font-medium text-zinc-500"
-                                        v-for="thirdLevelCategory in secondLevelCategory.children"
-                                    >
-                                        <a :href="thirdLevelCategory.url">
-                                            @{{ thirdLevelCategory.name }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </template>
+                        <!-- Right Panel: Promo -->
+                        <div class="w-[320px] bg-[#f9f9f9] p-8 rounded-xl flex flex-col items-center justify-center text-center">
+                            <h3 class="text-xl font-medium mb-3 text-gray-800 leading-tight">Looking for something specific?</h3>
+                            <p class="text-sm text-gray-500 mb-8">We can customise your request to fit your needs.</p>
+
+                            @if ($logo = core()->getCurrentChannel()->logo_url)
+                                <img src="{{ $logo }}" alt="{{ config('app.name') }}" class="object-contain h-12 opacity-80 mix-blend-multiply">
+                            @else
+                                <img src="{{ bagisto_asset('images/logo.svg') }}" alt="{{ config('app.name') }}" class="object-contain h-12 opacity-80">
+                            @endif
+
+                            <a :href="category.url" class="mt-8 inline-block px-8 py-2.5 bg-white border border-gray-300 text-sm font-medium text-black hover:border-black transition-colors rounded-md shadow-sm">Explore Now</a>
                         </div>
                     </div>
                 </div>
@@ -346,10 +348,10 @@
                     </span>
                 </div>
 
-                <!-- Show only first 4 categories in main navigation -->
+                <!-- Show only first 6 categories in main navigation -->
                 <div
-                    class="group relative flex h-[77px] items-center border-b-4 border-transparent hover:border-b-4 hover:border-navyBlue"
-                    v-for="category in categories.slice(0, 4)"
+                    class="group !static flex h-[77px] items-center border-b-4 border-transparent hover:border-b-4 hover:border-navyBlue"
+                    v-for="category in categories.slice(0, 6)"
                 >
                     <span>
                         <a
@@ -362,35 +364,37 @@
 
                     <!-- Dropdown for each category -->
                     <div
-                        class="pointer-events-none absolute top-[78px] z-[1] max-h-[580px] w-max max-w-[1260px] translate-y-1 overflow-auto overflow-x-auto border border-b-0 border-l-0 border-r-0 border-t border-[#F3F3F3] bg-white p-9 opacity-0 shadow-[0_6px_6px_1px_rgba(0,0,0,.3)] transition duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-hover:duration-200 group-hover:ease-in ltr:-left-9 rtl:-right-9"
+                        class="pointer-events-none absolute top-[78px] z-[10] max-h-[600px] left-0 w-full translate-y-1 overflow-auto border border-b-0 border-l-0 border-r-0 border-t border-[#F3F3F3] bg-white py-10 opacity-0 shadow-lg rounded-b-xl transition duration-300 ease-out group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-hover:duration-200 group-hover:ease-in"
                         v-if="category.children && category.children.length"
                     >
-                        <div class="flex justify-between gap-x-[70px]">
-                            <div
-                                class="grid w-full min-w-max max-w-[150px] flex-auto grid-cols-[1fr] content-start gap-5"
-                                v-for="pairCategoryChildren in pairCategoryChildren(category)"
-                            >
-                                <template v-for="secondLevelCategory in pairCategoryChildren">
-                                    <p class="font-medium text-navyBlue">
-                                        <a :href="secondLevelCategory.url">
-                                            @{{ secondLevelCategory.name }}
+                        <div class="flex gap-12 h-full w-full mx-auto" style="padding-left: 60px; padding-right: 60px;">
+                            <!-- Left Panel: Categories Grid -->
+                            <div class="flex-1 flex flex-col justify-between">
+                                <ul class="grid grid-cols-4 gap-y-4 gap-x-8">
+                                    <li v-for="subCategory in category.children" :key="subCategory.id">
+                                        <a :href="subCategory.url" class="text-[15px] font-medium text-gray-700 hover:text-black transition-colors block py-1">
+                                            @{{ subCategory.name }}
+                                            <span v-if="subCategory.name.toLowerCase() === 'promotions' || subCategory.name.toLowerCase() === 'sale'" class="ml-2 inline-block bg-[#cc6c45] text-white text-[10px] px-1.5 py-0.5 rounded">Sale</span>
                                         </a>
-                                    </p>
+                                    </li>
+                                </ul>
+                                <div class="mt-8 pt-6 border-t border-gray-100">
+                                    <a :href="category.url" class="text-[15px] font-semibold text-black hover:underline underline-offset-4">Shop all products &rarr;</a>
+                                </div>
+                            </div>
 
-                                    <ul
-                                        class="grid grid-cols-[1fr] gap-3"
-                                        v-if="secondLevelCategory.children && secondLevelCategory.children.length"
-                                    >
-                                        <li
-                                            class="text-sm font-medium text-zinc-500"
-                                            v-for="thirdLevelCategory in secondLevelCategory.children"
-                                        >
-                                            <a :href="thirdLevelCategory.url">
-                                                @{{ thirdLevelCategory.name }}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </template>
+                            <!-- Right Panel: Promo -->
+                            <div class="w-[320px] bg-[#f9f9f9] p-8 rounded-xl flex flex-col items-center justify-center text-center">
+                                <h3 class="text-xl font-medium mb-3 text-gray-800 leading-tight">Looking for something specific?</h3>
+                                <p class="text-sm text-gray-500 mb-8">We can customise your request to fit your needs.</p>
+
+                                @if ($logo = core()->getCurrentChannel()->logo_url)
+                                    <img src="{{ $logo }}" alt="{{ config('app.name') }}" class="object-contain h-12 opacity-80 mix-blend-multiply">
+                                @else
+                                    <img src="{{ bagisto_asset('images/logo.svg') }}" alt="{{ config('app.name') }}" class="object-contain h-12 opacity-80">
+                                @endif
+
+                                <a :href="category.url" class="mt-8 inline-block px-8 py-2.5 bg-white border border-gray-300 text-sm font-medium text-black hover:border-black transition-colors rounded-md shadow-sm">Explore Now</a>
                             </div>
                         </div>
                     </div>

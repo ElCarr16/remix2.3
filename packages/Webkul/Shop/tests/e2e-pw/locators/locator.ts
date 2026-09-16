@@ -246,7 +246,7 @@ export class WebLocators {
             "text=Thank you for your order!",
         );
         this.searchInput = page.getByRole("textbox", {
-            name: "Search products here",
+            name: "Search article here",
         });
         this.removeRed = page
             .getByRole("paragraph")
@@ -435,7 +435,7 @@ export class WebLocators {
         this.successMessage = page.locator("#app");
 
         // Search section
-        this.searchInput = page.getByPlaceholder("Search products here");
+        this.searchInput = page.getByPlaceholder("Search article here");
         this.addToCartButton = page
             .getByRole("button", { name: "Add To Cart" })
             .first();
